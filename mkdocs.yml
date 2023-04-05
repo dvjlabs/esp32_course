@@ -1,0 +1,32 @@
+site_name: MicroPython e ESP32
+site_author: dvjlabs team
+copyright: dvjlabs (c) 2023
+
+# ------------------------------------------------
+
+theme:
+  name: material
+  language: it
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+
+# ------------------------------------------------
+
+markdown_extensions:
+  - admonition: {}
+  - attr_list: {}
+  - toc: {}
+  - def_list: {}
+    
+# ------------------------------------------------
+
+nav:
+    - Home: index.md
+    - ESP32: esp32.md
+    - MicroPython: micropython.md 
+    - Sensori: sensori.md
+    - Input/Output: IO.md
+    - Networking: network.md
+
