@@ -1,7 +1,8 @@
 # Dominare l'universo
 
 
-Cominciamo!
+- Conquistare la Terra
+- Conquistare tutti gli altri pianeti
 
 
 

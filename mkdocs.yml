@@ -52,6 +52,7 @@ nav:
     - Corso:
         - ESP32: corso/esp32.md
         - MicroPython: corso/micropython.md 
+        - GPIO: corso/GPIO.md
         - Sensori: corso/sensori.md
         - Input/Output: corso/IO.md
         - Networking: corso/network.md

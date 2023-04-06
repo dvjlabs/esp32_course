@@ -12,6 +12,13 @@ Poiché l'interprete va eseguito direttamente sul microcontrollore, va scaricato
 Vediamo come!
 
 
+!!! tip "Domanda"
+
+    Sapete qual è l'editor Python più semplice ed adatto per la programmazione di microcontrollori basati su MicroPython??
+    
+    Se avete risposto <a href="https://thonny.org" target="_blank">Thonny</a>, avete dato la risposta esatta!!!
+
+
 ## MicroPython Firmware per ESP32
 
 Per caricare il firmware MicroPython occorre prima scaricarlo dal sito ufficiale!
@@ -19,21 +26,24 @@ Per caricare il firmware MicroPython occorre prima scaricarlo dal sito ufficiale
 - Aprite il sito ufficiale <a href="https://micropython.org" target="_blank">MicroPython</a>;
 - Cliccate sulla voce `Download`;
 - Scendete sull'elenco dei microcontrollori fino a trovare `ESP32 - EspressIf`
-- Scaricate l'ultimo file binario disponibile fra le `Firmware Releases`
+- Scaricate l'ultimo file binario disponibile fra le `Firmware Releases` (attualmente, la versione `v1.19.1`)
 
 Adesso un attimo di riposo... siete praticamente già ad un terzo del lavoro!!!
 
 La seconda fase consiste semplicemente nel collegare il microcontrollore ESP32 al nostro computer tramite un cavo USB.<br>
 Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
-- Aprite Thonny
-- Selez
-- blah blah
+- Aprite *Thonny*
+- Dal menù *ESEGUI*, seleziona *CONFIGURA L'INTERPRETE*
+- Seleziona *MicroPython (ESP32)* (vedi figura sotto)
+
 
 
 Il video qui sotto è... a prova di studente!!! Procedete come descritto. I prof vi controllano dall'alto :smile:
 
 - VIDEO
+
+
 
 
 ## "Hello, World!"
@@ -63,7 +73,6 @@ Se vuoi fare in modo che il tuo dispositivo esegua il tuo codice continuamente n
 ``` py
 # codice per eseguire il file HelloWord.py
 ```
-
 
 <br>
 <br>
