@@ -20,6 +20,8 @@ Un semplice corso per parlare di:
 
 - **sensori ed elettronica**: vuoi implementare un semaforo? Una calcolatrice? Una stazione meteo? Un allarme? Dovrai far interagire alcuni sensori con il tuo microcontrollore e dovrai gestirli tramite il tuo codice. Sarà divertente!!!
 
+Poi... per il divertimento di tutti, allestiremo anche una sezione di tutorials, per (provare a ) fare cose in autonomia!!
+
 Cominciamo!
 
 
