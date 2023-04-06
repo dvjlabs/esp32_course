@@ -6,11 +6,32 @@ copyright: dvjlabs (c) 2023
 
 theme:
   name: material
+  palette:
+      primary: black
   language: it
   features:
-    - navigation.sections
-    - navigation.expand
+    - navigation.tabs
+    - navigation.footer
     - toc.integrate
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >
+      Questo sito memorizza alcuni cookies solo per riconoscere un visitatore 
+      che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione
+      della pagina selezionato.<br>
+      Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br>
+      Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+    actions:
+     - accept
+     - reject
+
+extra_css:
+- stylesheets/extra.css
 
 # ------------------------------------------------
 
@@ -19,14 +40,19 @@ markdown_extensions:
   - attr_list: {}
   - toc: {}
   - def_list: {}
+  - pymdownx.emoji: {}
     
 # ------------------------------------------------
 
 nav:
     - Home: index.md
-    - ESP32: esp32.md
-    - MicroPython: micropython.md 
-    - Sensori: sensori.md
-    - Input/Output: IO.md
-    - Networking: network.md
+    - Corso:
+        - ESP32: corso/esp32.md
+        - MicroPython: corso/micropython.md 
+        - Sensori: corso/sensori.md
+        - Input/Output: corso/IO.md
+        - Networking: corso/network.md
+    - Tutorials:
+        - Dominare l'universo: tutorials/MasterUniverse.md
+        - Vincere la Champions: tutorials/WinChampionsLeague.md
 
