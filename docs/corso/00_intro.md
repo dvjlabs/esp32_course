@@ -1,4 +1,19 @@
-# ESP32
+# Introduzione
+
+Giusto due parole per introdurre:
+
+- Il MicroControllore ESP32
+- Le specifiche del dispositivo in dotazione alla scuola
+- MicroPython
+
+Introduciamo i concetti in senso generale... se avete *fretta* e volete passare subito alla fase operativa... il prossimo capitolo è per voi.
+
+Iniziamo!!
+
+<!-- ######################################################################################################### -->
+
+
+## Il MicroControllore ESP32
 
 ESP32 è un microcontrollore a basso costo, con Wifi e bluetooth integrato, oltre che un'interfaccia programmabile per la gestione di vari sensori collegati ad esso.<br>
 
@@ -20,6 +35,8 @@ conosciuta con il nome di <a href="https://it.wikipedia.org/wiki/Internet_delle_
 
 
 ![Internet of Things](images/IoT.jpg)
+
+<!-- ######################################################################################################### -->
 
 
 ## Specifiche ESP32 in dotazione a scuola
@@ -46,8 +63,28 @@ La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi 
 - Supporta: ARDUINO, NodeMCU, **MicroPython**, ESP-IDF
 
 
+<!-- ######################################################################################################### -->
 
-<!-- ################################################################################# -->
+
+## MicroPython
+
+![MicroPython site](images/MicroPythonSite.png)
+
+MicroPython è una implementazione del linguaggio Python progettata per essere eseguita sui microcontrollori. Uno degli obiettivi del progetto è quello
+di ricercare la miglior compatibilità possibile con il Python *normale*, per semplificare l'apprendimento e la realizzazione di software che colleghi
+i due mondi `desktop` e `sistemi embedded`.
+
+Il sito ufficiale di MicroPython è (incredibilmente): <a href="https://micropython.org" target="_blank">https://micropython.org</a>
+
+Poiché l'interprete va eseguito direttamente sul microcontrollore, va scaricato dal sito l'interprete adatto e installato su di esso. <br>
+Il prossimo capitolo spiega proprio questo!
+
+
+!!! tip "Domanda"
+
+    A proposito... sapete qual è l'editor Python più semplice ed adatto per la programmazione di microcontrollori basati su MicroPython??
+    
+    Se avete risposto <a href="https://thonny.org" target="_blank">Thonny</a>, avete dato la risposta esatta!!!
 
 
 <br>

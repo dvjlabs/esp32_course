@@ -44,18 +44,24 @@ markdown_extensions:
   - toc: {}
   - def_list: {}
   - pymdownx.emoji: {}
-    
+  - pymdownx.tasklist: {custom_checkbox: True}
+  - pymdownx.highlight: {anchor_linenums: True}
+  - pymdownx.inlinehilite: {}
+  - pymdownx.snippets: {}
+  - pymdownx.superfences: {}
+
 # ------------------------------------------------
 
 nav:
     - Home: index.md
     - Corso:
-        - ESP32: corso/esp32.md
-        - MicroPython: corso/micropython.md 
-        - GPIO: corso/GPIO.md
-        - Sensori: corso/sensori.md
-        - Input/Output: corso/IO.md
-        - Networking: corso/network.md
+        - Introduzione: corso/00_intro.md
+        - Prime Operazioni: corso/01_prime_operazioni.md
+        - MicroPython: corso/02_micropython.md 
+        - GPIO: corso/03_GPIO.md
+        - Sensori: corso/04_sensori.md
+        - Input/Output: corso/05_IO.md
+        - Networking: corso/06_network.md
     - Tutorials:
         - Dominare l'universo: tutorials/MasterUniverse.md
         - Vincere la Champions: tutorials/WinChampionsLeague.md
