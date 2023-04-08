@@ -68,13 +68,14 @@ La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi 
 
 ## MicroPython
 
-![MicroPython site](images/MicroPythonSite.png)
 
 MicroPython è una implementazione del linguaggio Python progettata per essere eseguita sui microcontrollori. Uno degli obiettivi del progetto è quello
 di ricercare la miglior compatibilità possibile con il Python *normale*, per semplificare l'apprendimento e la realizzazione di software che colleghi
 i due mondi `desktop` e `sistemi embedded`.
 
-Il sito ufficiale di MicroPython è (incredibilmente): <a href="https://micropython.org" target="_blank">https://micropython.org</a>
+Il sito ufficiale di MicroPython è (incredibilmente): <a href="https://micropython.org" target="_blank">https://micropython.org</a> (sotto, uno screenshot)
+
+![MicroPython site](images/MicroPythonSite.png)
 
 Poiché l'interprete va eseguito direttamente sul microcontrollore, va scaricato dal sito l'interprete adatto e installato su di esso. <br>
 Il prossimo capitolo spiega proprio questo!
