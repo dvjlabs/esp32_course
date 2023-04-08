@@ -46,11 +46,11 @@ Premessa: queste info qui sotto sono *roba da nerd*... leggetele con il rischio 
 
 La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi buoni... lo potrete leggere sul dispositivo stesso):
 
-- lavora a 3.3 Volt
+- Deve essere alimentato a 3.3 Volt
 - Consuma fino a 500mA
 - Il controllore **ESP32-WROOM-32**, incredibilmente a 32 bit, è dual-core basato su Xtensa LX6
-- Lavora a 240 Mhz
-- La memoria predefinita: 32 Mb ROM a 40 Mhz
+- Ha una frequenza di 240 Mhz
+- La memoria predefinita è una ROM di 32 Mb a 40 Mhz
 - **WiFi**: 802.11 b/g/n, fino a 150 Mbps
 - **Bluetooth** 4.2 BR/EDR e BLE
 - Ricevitore NZIF
