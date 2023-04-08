@@ -12,14 +12,13 @@ librerie della `Python Standard Library`.
 
 !!! note "Santi Alias..."
 
-    A dire la verità... i moduli MicroPython iniziano tutti per `u` (che assomiglia alla lettera `micro` dell'alfabeto greco antico).
-    
+    A dire la verità... i moduli MicroPython iniziano tutti per `u` (che assomiglia a `µ` (micro) dell'alfabeto greco antico):
     `utime`, `umath`, `urandom`, etc... Però hanno tutti un alias che li riporta al nome della Libreria Python Standard originale.
     
     Quindi potete scrivere senza problemi, sia `import utime` che `import time` :smile:
     
 
-La cosa interessante su sui spendere un pò di tempo sono sicuramente le librerie specifiche per i microcontrollori. In questo momento però, 
+La cosa interessante su cui spendere un pò di tempo sono sicuramente le librerie specifiche per i microcontrollori. In questo momento però, 
 la cosa più corretta mi sembra solo quella di aggiungere per ognuna una breve descrizione ed il link alla documentazione ufficiale.
 
 A proposito... qui trovate tutta la <a href="https://docs.micropython.org/en/latest/index.html" target="_blank">documentazione ufficiale</a> 
@@ -63,4 +62,7 @@ Modulo per la configurazione della rete. Collegamento del dispositivo alla rete 
 Modulo di accesso ai dati binari in maniera strutturata. Quando saprete utilizzare questo... sarete dei draghi!!
 
 
+<br>
+<br>
+<br>
 
