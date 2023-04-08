@@ -28,7 +28,7 @@ Gli altri colori... con calma. Con questi siamo già sufficientemente operativi.
 
 
 Negli esempi di codice che seguono andremo a ragionare su un sensore, un attuatore, un... hardware da collegare in qualche modo alla nostra MCU, con
-cui interfacciarsi osservando questa immagine di riferimentom utilizzando la libreria MicroPython necessaria.
+cui interfacciarsi osservando questa immagine di riferimento e utilizzando la libreria MicroPython necessaria.
 
 Proviamo!!!
 
