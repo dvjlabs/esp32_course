@@ -51,15 +51,15 @@ La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi 
 - Il controllore **ESP32-WROOM-32**, incredibilmente a 32 bit, è dual-core basato su Xtensa LX6
 - Ha una frequenza di 240 Mhz
 - La memoria predefinita è una ROM di 32 Mb a 40 Mhz
-- **WiFi**: 802.11 b/g/n, fino a 150 Mbps
-- **Bluetooth** 4.2 BR/EDR e BLE
+- Il **WiFi** supporta i protocolli 802.11 b/g/n, fino a 150 Mbps
+- Ha **Bluetooth** 4.2 BR/EDR e BLE
 - Ricevitore NZIF
-- Encryption: WAPI, WEP, TKIP, AES, SHA-2, RSA, ECC
-- Analog inputs (ADC): 12, 12-bit
-- Analog outputs (DAC): 2, 8-bit
-- Interfaces: **GPIO**, UART, I2C, I2S, SPI, PWM, Touch, Ethernet MAC, SDcard, SDIO, IrDA
-- UART baud rate: up to 5MBit/s
-- Programmable GPIO5 **output LED**
+- Supporta le seguenti cifrature: WAPI, WEP, TKIP, AES, SHA-2, RSA, ECC
+- Input analogici (ADC): 12, a 12-bit ognuna
+- Output analogici (DAC): 2, a 8-bit ognuna
+- Interfacce: **GPIO**, UART, I2C, I2S, SPI, PWM, Touch, Ethernet MAC, SDcard, SDIO, IrDA
+- UART baud rate: fino a 5MBit/s
+- **Output LED** programmabile: al GPIO **5**
 - Supporta: ARDUINO, NodeMCU, **MicroPython**, ESP-IDF
 
 

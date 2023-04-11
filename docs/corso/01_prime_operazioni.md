@@ -32,7 +32,7 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
 - Poi clicca `installa`
 
-![Installazione Firmware](images/installa_firmware.png)
+![Installazione Firmware](images/install_firmware.png)
 
 - ... attendi fiducioso un minutino buono...
 - ...

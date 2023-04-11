@@ -62,6 +62,25 @@ Modulo per la configurazione della rete. Collegamento del dispositivo alla rete 
 Modulo di accesso ai dati binari in maniera strutturata. Quando saprete utilizzare questo... sarete dei draghi!!
 
 
+## Questo capitolo si autodistruggerà in pochi giorni...
+
+Ho messo alcune immagini per dare un riferimento veloce su alcune classi/moduli che useremo parecchio, perché, soprattutto all'inizio, potreste
+fare fatica a basare tutta la vostra ricerca di informazioni sulla documentazione ufficiale (che comunque è **IL** riferimento finale).
+
+In questo modo saremo velocemente più che operativi :wink:
+
+<br>
+
+![Class machine](images/class_machine.png)
+
+<br>
+
+![Class Pin](images/class_pin.png)
+
+<br>
+
+![Class time](images/class_time.png)
+
 <br>
 <br>
 <br>

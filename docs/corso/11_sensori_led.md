@@ -1,28 +1,29 @@
 # Sensori e ESP32
 
+
+
 I sensori blah blah
 
 
 <!-- ################################################################################# -->
 ## LED
 
-Blah blah
+![Lista dei componenti](images/sensori_LED_material.png)
 
 
 <!-- ################################################################################# -->
 ## Buttons
 
-Blah blah
+![Lista dei componenti](images/sensori_LED_Button_material.png)
+
 
 <!-- ################################################################################# -->
-## Analog && PWM
+## LED Bar
 
-Blah blah
+![Lista dei componenti](images/sensori_LEDBar_material.png)
 
-<!-- ################################################################################# -->
-## Buzzer(s)
 
-Blah blah
+
 
 <br>
 <br>
