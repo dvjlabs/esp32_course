@@ -22,7 +22,11 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 - Dal menù `ESEGUI`, seleziona `CONFIGURA L'INTERPRETE`
 - Seleziona `MicroPython (ESP32)` (vedi figura sotto)
 
+<br>
+
 ![Opzioni Thonny](images/opzioni_thonny.png)
+
+<br>
 
 - Adesso selezionate `Installa o Aggiorna MicroPython`
 - Si aprirà la finestra qui sotto. Vanno selezionate:
@@ -32,13 +36,21 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
 - Poi clicca `installa`
 
+<br>
+
 ![Installazione Firmware](images/install_firmware.png)
+
+<br>
 
 - ... attendi fiducioso un minutino buono...
 - ...
 - Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
 
+<br>
+
 ![Shell Thonny](images/shell_thonny_micropython.png)
+
+<br>
 
 Ecco fatto!
 
@@ -92,7 +104,11 @@ Adesso salva il file come `led_test.py` dentro la memoria dell'ESP32. Per farlo:
 - clicca SALVA
 - Dall'interfaccia seleziona *Dispositivo MicroPython*
 
+<br>
+
 ![Salva su MCU](images/save_selection.png)
+
+<br>
 
 - Salva il file nella MCU con nome `led_test.py` o come preferisci.
 

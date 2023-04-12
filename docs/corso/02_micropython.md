@@ -10,10 +10,11 @@ Ovviamente le risorse hardware disponibili sono molto limitate, ma le funzionali
 librerie della `Python Standard Library`.
 
 
-!!! note "Santi Alias..."
+!!! note "Alias Predefiniti"
 
-    A dire la verità... i moduli MicroPython iniziano tutti per `u` (che assomiglia a `µ` (micro) dell'alfabeto greco antico):
-    `utime`, `umath`, `urandom`, etc... Però hanno tutti un alias che li riporta al nome della Libreria Python Standard originale.
+    A dire la verità... i moduli MicroPython che reimplementano funzionalità della **Python Standard Library** iniziano tutti per `u` 
+    (che assomiglia a `µ` (micro) dell'alfabeto greco antico): `utime`, `umath`, `urandom`, etc... <br>
+    Però hanno tutti un alias predefinito che li riporta al nome della Libreria Python Standard originale.
     
     Quindi potete scrivere senza problemi, sia `import utime` che `import time` :smile:
     
@@ -21,7 +22,7 @@ librerie della `Python Standard Library`.
 La cosa interessante su cui spendere un pò di tempo sono sicuramente le librerie specifiche per i microcontrollori. In questo momento però, 
 la cosa più corretta mi sembra solo quella di aggiungere per ognuna una breve descrizione ed il link alla documentazione ufficiale.
 
-A proposito... qui trovate tutta la <a href="https://docs.micropython.org/en/latest/index.html" target="_blank">documentazione ufficiale</a> 
+A proposito... qui trovate la <a href="https://docs.micropython.org/en/latest/index.html" target="_blank">documentazione ufficiale</a> 
 del progetto MicroPython in tutta la sua interezza. Se volete curiosare... fate pure.
 Lo spirito con cui ho messo i link mirati qui sotto è invece quello di consultare una documentazione specifica secondo necessità.
 

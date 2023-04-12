@@ -10,21 +10,29 @@ La risposta è semplice ma un pò articolata.
 
 Prima di tutto il sistema di pin ha un ruolo e una numerazione, come vediamo nella figura sottostante
 
+<br>
+
 ![GPIO pinout](images/ESP32-WROOM-32-LOIN32-pinout.png)
 
-Con un pochino di esperienza capiremo al volo quali pin utilizzare e come... per adesso osserviamo le scritte **viola** del tipo `GPIOXX` dove `XX` 
-è il numero identificativo del pin in questione: quello è il numero che ci serve per interagire con il dispositivo eventualmente collegato
-a quel pin fisico.
+<br>
 
-Alcuni di essi hanno la scritta **rossa**: `3.3v` oppure `5v`. Indicano il voltaggio che si può ottenere collegando un dispositivo a uno di quei pin.
-Ovviamente serve per alimentarlo :smile:
+Con un pochino di esperienza capiremo al volo quali pin utilizzare e come... per adesso osserviamo pezzo per pezzo lo schema:
 
-Altri hanno la scritta **nera**: `GND` (ground). Serve per il collegamento a terra di un circuito elettrico.
+- le scritte **viola** sono tutte del tipo `GPIOXX` dove `XX` è il numero identificativo del pin in questione: quello è l'informazione che
+  ci serve per interagire con il dispositivo eventualmente collegato a quel pin fisico.
 
-Infine alcuni hanno la scritta **grigia**: `Input Only`. Servono per il collegamento solo di input, ovvero per la lettura dei dati 
-da un eventuale dispositivo alla MCU.
+- le scritte **rosse** sono solo `3.3v` oppure `5v`. Indicano il voltaggio che si può ottenere collegando un dispositivo a uno di quei pin.
+  Ovviamente serve per alimentarlo :smile:
 
-Gli altri colori... con calma. Con questi siamo già sufficientemente operativi.
+- le scritte **nere** `GND` (ground) indicano i pin di collegamento a terra di un circuito elettrico.
+
+- le scritte **grigie** `Input Only` indicano che quei pin sono di collegamento unilaterale per la lettura dei dati dal dispositivo elettronico alla MCU.
+
+- le linee nere che collegano le scritte ai pin hanno in alcune di esse una **pulsazione**! I pin che ce l'hanno supportano il `Pulse Width Modulation`,
+  di cui parleremo a breve.
+
+
+Per adesso basta! Con questi siamo già sufficientemente operativi.
 
 
 Negli esempi di codice che seguono andremo a ragionare su un sensore, un attuatore, un... hardware da collegare in qualche modo alla nostra MCU, con
