@@ -24,7 +24,9 @@ Poi... per il divertimento di tutti, allestiremo anche una sezione di tutorials,
 
 Cominciamo!
 
-
+<a href="corso/00_intro/" class="md-button md-button--primary" style="width:230px">Il Corso...</a>
+&nbsp;&nbsp;&nbsp;
+<a href="tutorials/00_intro/" class="md-button" style="width:230px">I Tutorial!</a>
 
 <br>
 <br>
