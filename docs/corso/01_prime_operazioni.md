@@ -28,6 +28,14 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
 <br>
 
+!!! note "La giusta porta COM"
+
+    Come vedete in figura, la MCU utilizza una porta COM supportata dal driver **Silicon Labs CP210x USB to UART Bridge**.
+    
+    Se nel tuo computer manca... chiedi al prof!!!
+
+<br>
+
 - Adesso selezionate `Installa o Aggiorna MicroPython`
 - Si aprirà la finestra qui sotto. Vanno selezionate:
     
