@@ -17,13 +17,10 @@ theme:
     - navigation.footer
     - toc.integrate
     - content.code.copy
-  font:
-    text: Roboto
-    code: Roboto Mono
-
+  font: false
 extra:
   consent:
-    title: Cookie consent
+    title: Consenso all'utilizzo dei cookies
     description: >
       Questo sito memorizza alcuni cookies solo per riconoscere un visitatore 
       che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione
