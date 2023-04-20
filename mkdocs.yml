@@ -16,6 +16,7 @@ theme:
     - navigation.tabs
     - navigation.footer
     - toc.integrate
+    - content.code.copy
   font:
     text: Roboto
     code: Roboto Mono
