@@ -1,6 +1,6 @@
-# Sensori e ESP32
+# Sensori: i buzzers
 
-I sensori blah blah
+
 
 
 
