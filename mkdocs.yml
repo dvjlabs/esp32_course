@@ -57,6 +57,7 @@ nav:
         - Prime Operazioni: corso/01_prime_operazioni.md
         - MicroPython: corso/02_micropython.md 
         - GPIO: corso/03_GPIO.md
+        - Componenti: corso/07_components.md
         - "Sensori: LED(s)": corso/11_sensori_led.md
         - "Sensori: Analog && PWM": corso/12_sensori_analog_pwm.md
         - "Sensori: Buzzer(s)": corso/13_sensori_buzzer.md

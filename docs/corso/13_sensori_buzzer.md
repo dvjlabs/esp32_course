@@ -7,7 +7,7 @@
 <!-- ################################################################################# -->
 ## Buzzer: campanello
 
-![Lista dei componenti](images/sensori_Buzzer_material.png)
+![Lista dei componenti](projects/buzzer_material.png)
 
 <!-- ################################################################################# -->
 ## Buzzer: allarme

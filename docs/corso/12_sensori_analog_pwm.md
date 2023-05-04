@@ -83,7 +83,7 @@ Il materiale necessario per il progetto è elencato nella figura sottostante
 
 Il circuito da realizzare consiste nel collegamento del LED alla resistenza esattamente come nei precedenti esempi sui LED.
 
-![Lista dei componenti](images/sensori_LED_material.png)
+![Lista dei componenti](projects/LED_material.png)
 
 
 <!-- ################################################################################# -->
@@ -131,7 +131,7 @@ opportunamente con tecniche PWM è possibile sostanzialmente ottenere qualsiasi 
 
 Nel nostro progetto andiamo a comporre un circuito con i seguenti componenti:
 
-![Lista dei componenti](images/sensori_RGBLED_material.png)
+![Lista dei componenti](projects/RGBLED_material.png)
 
 Organizziamo il circuito in questo modo:
 
