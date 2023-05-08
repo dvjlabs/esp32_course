@@ -67,20 +67,99 @@ dipende dalla quantità di corrente che passa e dalla sua... *resistenza*.
 <!-- ################################################################################# -->
 ## LED
 
+Questo progetto è identico a quello del LED integrato nella MCU che lampeggia. La differenza (sostanziale)
+sta nel fatto che in questo progetto il LED è esterno e collegato ad un PIN a piacere (fra quelli... ammissibili).
+
+Vediamo la lista dei componenti necessari (oltre ovviamente all'ESP32 e alla breadboard su cui è alloggiato):
+
+
 ![Lista dei componenti](projects/LED_material.png)
+
+
+Vediamo adesso come costruire il circuito del LED:
+
+
+![LED Schema](projects/LED_schema.png)
+
+
+A seconda del PIN scelto per il collegamento fisico del LED, dobbiamo indicare il numero nel codice (io ci ho lasciato il 5 del led integrato):
+
+``` python
+from machine import Pin
+from time import sleep
+
+# Il pin 5 è quello del LED programmabile
+# Ricordate?
+led = Pin(5, Pin.OUT)
+
+# come promesso...
+print("Hello, World!")
+
+while True:
+    if led.value():
+        led.value(False)
+        print("LED Spento")
+    else:
+        led.value(True)
+        print("LED Acceso")
+    
+    # Aspetta 1 secondo...
+    sleep(1)
+```
 
 
 <!-- ################################################################################# -->
 ## Buttons
 
+Nel secondo progetto abbiamo un pulsante collegato ad un LED nel nostro circuito. Incredibilmente... 
+quando si clicca il pulsante dovrebbe accendersi la luce!!!
+
+Vediamo la lista dei componenti:
+
+
 ![Lista dei componenti](projects/LED_Button_material.png)
+
+
+E adesso vediamo lo schema elettrico del progetto:
+
+
+![Schema LED Button](projects/LED_Button_schema.png)
+
+
+Quello che manca è il codice di funzionamento. Eccolo:
+
+``` python
+# CODE
+```
 
 
 <!-- ################################################################################# -->
 ## LED Bar
 
+
+La barra dei LED è un semplice componente in cui sono integrati ben 8 LED! Per il nostro progetto avremo bisogno di:
+
+
 ![Lista dei componenti](projects/LEDBar_material.png)
 
+
+Fatto questo, andate a collegare i componenti come in figura:
+
+
+![LEDBAR Schema](projects/LEDBar_schema.png)
+
+
+Adesso tramite codice andiamo a fornire un comportamento al nostro progetto: Facciamo in modo che ogni secondo la barra si riempa
+sempre più e poi inizi a svuotarsi. Ecco il codice:
+
+``` python
+# CODE
+```
+
+
+
+<!-- ################################################################################# -->
+## Esercizi
 
 
 
