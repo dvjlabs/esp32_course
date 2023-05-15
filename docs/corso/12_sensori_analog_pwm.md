@@ -78,16 +78,39 @@ pwm.deinit()
 ## Breathing LED
 
 Con "Breathing LED" si intende un LED che cambia la sua intensità luminosa in maniera continua e controllata.
-Il materiale necessario per il progetto è elencato nella figura sottostante
+Il materiale necessario e schema circuitale sono gli stessi di qualunque progetto con un LED! Quello che cambia qui è il pin (che deve supportare il PWM) 
+e il codice di gestione, che andiamo subito a vedere!
 
 
-Il circuito da realizzare consiste nel collegamento del LED alla resistenza esattamente come nei precedenti esempi sui LED.
+``` py
+from machine import Pin,PWM
+import time
 
-![Lista dei componenti](projects/LED_material.png)
+pin = Pin(xxx, Pin.OUT)
+
+pwm = PWM( pin,10000)
+
+# provate a modificare questo valore per osservare il cambio di comportamento
+sleep_time = 1
+
+while True:
+    for i in range(0,1023):
+        pwm.duty(i)
+        time.sleep_ms( sleep_time )
+        
+    for i in range(0,1023):
+        pwm.duty(1023-i)
+        time.sleep_ms( sleep_time )  
+
+pwm.deinit()
+
+
+```
+
 
 
 <!-- ################################################################################# -->
-## RGB LED
+## Componenti: RGB LED
 
 
 Un led RGB non è altro che un led in grado di generare 3 differenti colori. Attivando i tre colori insieme e mescolandoli 
@@ -124,16 +147,51 @@ opportunamente con tecniche PWM è possibile sostanzialmente ottenere qualsiasi 
         #FF8888 è un rosso chiaro
         ...
     ```
+    
+    ![Sintesi additiva RGB](images/AP_RGB.jpg)
 
 
-![Sintesi additiva RGB](images/AP_RGB.jpg)
 
+
+<!-- ################################################################################# -->
+## LED RGB
 
 Nel nostro progetto andiamo a comporre un circuito con i seguenti componenti:
 
 ![Lista dei componenti](projects/RGBLED_material.png)
 
 Organizziamo il circuito in questo modo:
+
+![Circuito Led RGB](projects/RGBLED_schema.png)
+
+Infine testiamo il seguente codice:
+
+
+``` py
+import machine
+import random
+import time
+
+pinR = machine.Pin(xxx, Pin.OUT)
+pinG = machine.Pin(yyy, Pin.OUT)
+pinB = machine.Pin(zzz, Pin.OUT)
+pwmR = machine.PWM(pinR,10000)
+pwmG = machine.PWM(pinG,10000)
+pwmB = machine.PWM(pinB,10000)
+
+while True:
+    rPerc = random.randint(0,1023)
+    gPerc = random.randint(0,1023)
+    bPerc = random.randint(0,1023)
+    pwmR.duty(rPerc)
+    pwmG.duty(gPerc)
+    pwmB.duty(bPerc)
+    time.sleep_ms(200)
+
+pwmR.deinit()
+pwmG.deinit()
+pwmB.deinit()
+```
 
 
 <!-- ################################################################################# -->

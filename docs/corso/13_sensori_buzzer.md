@@ -67,7 +67,18 @@ Selezionati i pin a cui collegare il buzzer e il pulsante, ecco il codice per l'
 
 
 ```python
-# code...
+from machine import Pin
+
+button = Pin(xxx,Pin.IN,Pin.PULL_UP)
+activeBuzzer = Pin(yyy,Pin.OUT)
+
+activeBuzzer.value(0)
+
+while True:
+    if not button.value():
+        activeBuzzer.value(1)
+    else:
+        activeBuzzer.value(0)
 ```
 
 
@@ -78,11 +89,38 @@ Un allarme funziona in maniera analoga al progetto del campanello, ma ha il tipi
 Per ottenere ciò, **dovremo sostituire il buzzer attivo con uno passivo e implementare un PWM**.
 
 
-Il progetto è uguale al precedente, quello che cambia è semplicemente il tipo di buzzer e il codice:
+Il progetto è uguale al precedente, quello che cambia è semplicemente il tipo di buzzer, il fatto che il pin di collegamento dovrà
+per forsa supportare il PWN e il codice:
 
 
 ```python
-# code...
+from machine import Pin,PWM
+import math
+import time
+
+PI = 3.14
+
+button = Pin(xxx,Pin.IN,Pin.PULL_UP)
+
+pinB = Pin(yyy,Pin.OUT)
+passiveBuzzer = PWM( pinB, 2000)
+
+def alert():
+
+        
+while True:
+    if not button.value():
+        passiveBuzzer.init()
+        
+        for x in range(0,36):
+            sinVal = math.sin(x*10*PI/180)
+            toneVal = 2000 + int(sinVal*500)
+            passiveBuzzer.freq(toneVal)
+            time.sleep_ms(10)   
+    else:
+        passiveBuzzer.deinit()
+
+passiveBuzzer.deinit()
 ```
 
 

@@ -129,7 +129,17 @@ E adesso vediamo lo schema elettrico del progetto:
 Quello che manca è il codice di funzionamento. Eccolo:
 
 ``` python
-# CODE
+from machine import Pin
+
+# Ovviamente, vanno scelti accuratamente i valori del pin GPIO
+led = Pin(xxx, Pin.OUT)
+button = Pin(yyy, Pin.IN,Pin.PULL_UP) 
+
+while True:
+    if not button.value():     
+        led.value(0)
+    else:
+        led.value(1)
 ```
 
 
@@ -153,13 +163,66 @@ Adesso tramite codice andiamo a fornire un comportamento al nostro progetto: Fac
 sempre più e poi inizi a svuotarsi. Ecco il codice:
 
 ``` python
-# CODE
+import time
+from machine import Pin
+
+# Gli 8 pin, in ordine come connessi alla ledbar
+pins=[a,b,c,d,e,f,g,h,i]
+
+acceso = True
+while True:
+    for p in pins:
+        led = Pin( p, Pin.OUT)
+        led.value( acceso )
+        time.sleep_ms(500)
+    
+    # rovescia l'ordine dei pin
+    pins.reverse()
+    
+    # inverti vero/falso
+    acceso = not acceso
 ```
 
 
 
 <!-- ################################################################################# -->
 ## Esercizi
+
+<br>
+
+**Luci della Polizia!**
+
+Implementare un circuito con due luci, una rossa e una blu, che si accendono alternativamente.
+
+<br>
+
+**Semaforo**
+
+Implementare un circuito con tre luci: verde, giallo, rossa a rappresentare un semaforo. Tramite codice, con un opportuno timer,
+programmare la giusta alternanza di luci tipica di un semaforo.
+
+<br>
+
+
+**Note Musicali**
+
+Con la barra dei led ed una opportuna struttura dati, implementare una sequenza di note facendo corrispondere al primo led un DO, al secondo un RE...
+Qualsiasi melodia da flauto dolce va bene!!!
+
+
+<br>
+
+
+**Button LED...Bar**
+
+Pulsante e barra dei led.
+
+Primo livello: quando si clicca il pulsante, parte il caricamento della barra, che poi si scaricherà quando è tutta piena.
+
+Secondo livello: implementare il primo livello tramite la chiamata ad una funzione (tipo `caricaLedBar`).
+
+Terzo livello: Quando si clicca di nuovo il pulsante il caricamento si interrompe.
+
 
 
 
