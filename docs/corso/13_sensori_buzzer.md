@@ -13,7 +13,7 @@ I buzzer sono di due tipi:
 2. **buzzer passivi**: necessitano di un oscillatore esterno (nel nostro caso un PWM) per emettere un suono.
 
 
-![buzzer](images/buzzers1.png)
+![buzzer](images/buzzers_active_vs_passive.png)
 
 
 I buzzer attivi sono semplicissimi da usare, ma tipicamente sono in grado di fare solo uno specifico suono. I buzzer passivi necessitano di un intero circuito per funzionare, ma di contro possono essere regolati per emettere suoni a frequenze differenti.
