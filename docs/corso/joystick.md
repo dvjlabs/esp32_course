@@ -12,7 +12,9 @@ Esso riceve gli input in 2 assi, X e Y. Inoltre il joystick ha a disposizione an
 
 In figura vediamo anche i collegamenti elettrici che il nostro joystick richiede. Nel nostro caso, invece della tensione di 5V come indicato in figura, useremo una tensione di 3,3 volt (come vedremo in seguito).
 
-Spostare il joystick lungo l'asse X o Y, ha effetto su una resistenza variabile. Premere il joystick significa aprire o chiudere un pulsante. Di seguito vediamo il circuito elettrico presente all'interno di un joystick.
+Spostare il joystick lungo l'asse X o Y, ha effetto su una resistenza variabile. Premere il joystick significa aprire o chiudere un pulsante. 
+Di seguito vediamo il circuito elettrico presente all'interno di un joystick.
+
 ![esempio di joystick](images/schemajoy.jpg)
 
 I due segnali VRX e VRY sono due segnali analogici che andranno collegati direttamenti a due pin GPIO del componente ESP32 con funzione di convertitore Analogico-Digitale.
@@ -22,7 +24,9 @@ Un aspetto importante dei segnali analogici è che possono assumere un numero in
 
 La lista dei componenti necessari è indicata nella figura seguente:
 ![schema elettrico di un joystick](images/listacomponenti.jpg)
-I componenti andranno collegati secondo lo schema della figura sotto. Fare attenzione che nel pin del joystick in cui è indicato il valore di 5V, in realtà bisogna mettere il valore di 3.3V che potete trovare nel pin in alto a sinistra del componente ESP32.
+I componenti andranno collegati secondo lo schema della figura sotto. 
+Fare attenzione che nel pin del joystick in cui è indicato il valore di 5V, in realtà bisogna mettere il valore di 3.3V 
+che potete trovare nel pin in alto a sinistra del componente ESP32.
 
 ![schema elettrico di un joystick](images/schema1.jpg)
 
