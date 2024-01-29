@@ -60,6 +60,7 @@ nav:
         - "Sensori: LED(s)": corso/11_sensori_led.md
         - "Sensori: Analog && PWM": corso/12_sensori_analog_pwm.md
         - "Sensori: Buzzer(s)": corso/13_sensori_buzzer.md
+        - "Joystick": corso/14_joystick.md
  #       - Input/Output: corso/21_IO.md
  #       - Networking: corso/31_network.md
     - Tutorials:
