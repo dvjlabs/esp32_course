@@ -62,7 +62,7 @@ nav:
         - "Sensori: Buzzer(s)": corso/13_sensori_buzzer.md
         - "Joystick": corso/14_joystick.md
  #       - Input/Output: corso/21_IO.md
- #       - Networking: corso/31_network.md
+        - Networking: corso/31_network.md
     - Tutorials:
         - Introduzione: tutorials/00_intro.md
         - Dominare l'universo: tutorials/MasterUniverse.md
