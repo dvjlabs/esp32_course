@@ -65,6 +65,6 @@ nav:
         - Networking: corso/31_network.md
     - Tutorials:
         - Introduzione: tutorials/00_intro.md
-        - Dominare l'universo: tutorials/MasterUniverse.md
-        - Vincere la Champions: tutorials/WinChampionsLeague.md
+        - Socket Programming: tutorials/10_socket.md
+        - Tello SDK: tutorials/20_tello.md
 
