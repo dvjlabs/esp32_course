@@ -114,7 +114,7 @@ udp_socket.sendto(MESSAGE.encode(), (Server_IP, Server_PORT))
 
 time.sleep(0.1)
 
-message,address = sock.recvfrom(1024)
+message,address = udp_socket.recvfrom(1024)
 
 print("Reply from Server:", message.decode() )
 print("Server IP Address:", address)
