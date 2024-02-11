@@ -11,7 +11,7 @@ per la possibile creazione di altrettanti socket!
 
 <br>
 
-![Socket Connection](network_socket.png)
+![Socket Connection](images/network_socket.png)
 
 <br>
 
@@ -121,6 +121,76 @@ print("Server IP Address:", address)
 ```
 
 Adesso basta solo provare :)
+
+
+## Comunicazione client/server TCP in Python
+
+TCP è un protocollo ben più complicato di UDP! Vi espongo le differenze fondamentali:
+
+- il socket del server, **prima** di poter ricevere connessioni, dovrà porsi in modalità `listen`
+- il client, **prima** di poter inviare dati al server, dovrà stabilire una `connessione` con il socket del server
+- Una volta stabilita la connessione, i dati tra i due socket saranno veicolati tramite essa, con i metodi `sendall` e `recv`
+- I dati di passaggio nella connessione sono per forza di cose ordinati! (A questo ci pensa TCP... noi non dobbiamo fare nulla. Solo sapere...)
+- Alla fine dello scambio di dati la connessione va chiusa con il metodo `close` **da parte di entrambi i socket**!!!
+
+Vediamo un esempio di codice che implementa un semplice client e un semplice server basati su TCP. Il client potrà inviare qualsiasi messaggio vuole, mentre il server
+risponderà comunque *ok*. Se il client invia la stringa *close* il server saluta con *bye* e chiude la connessione.
+
+
+``` python title="Simple Python TCP server" hl_lines="8 9 13 19 23"
+import socket
+
+HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
+PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
+
+tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+tcp_socket.bind( (HOST, PORT) )
+tcp_socket.listen()
+
+print(f"listening on socket ({HOST}:{PORT})...")
+
+conn, addr = tcp_socket.accept()
+
+if conn:
+    print(f"Connected by {addr}")
+    
+    while True:
+        data = conn.recv(1024)
+        message = data.decode()
+        print("Received:", message)
+        if message == "close":
+            conn.sendall( "bye".encode() )
+            break
+        conn.sendall( "OK".encode() )
+        
+conn.close()
+```
+
+Qui sotto invece trovate il codice che implementa il client TCP.
+
+
+``` python title="Simple Python TCP client" hl_lines="7 12 13"
+import socket
+
+HOST = "127.0.0.1"  # The server's hostname or IP address
+PORT = 65432  # The port used by the server
+
+tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp_socket.connect( (HOST, PORT) )
+
+while True:
+    message = input("Message to send: ")
+
+    tcp_socket.sendall( message.encode() )
+    data = tcp_socket.recv(1024)
+    message = data.decode()
+    print(f"Received: {data.decode()}")
+
+    if message == "bye":
+        tcp_socket.close()
+        break
+```
 
 <br>
 <br>
