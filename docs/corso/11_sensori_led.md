@@ -20,7 +20,7 @@ Nel dubbio, riassumo quanto bisognerebbe dedurre al volo:
 
 - la breadboard è *spaccata* in due a metà: la parte sopra NON comunica con la parte sotto
 - le *colonne* evidenziate in verde hanno ognuna tutti i fori collegati fra loro: tipicamente servono per i collegamenti elettrici
-- le *righeé rosse e blu sono anch'esse ognuna tutte collegate fra loro: tipicamente servono per l'alimentazione dei circuiti
+- le *righe* rosse e blu sono anch'esse ognuna tutte collegate fra loro: tipicamente servono per l'alimentazione dei circuiti
 
 
 ### LED

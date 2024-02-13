@@ -10,8 +10,8 @@ Per caricare il firmware MicroPython occorre prima scaricarlo dal sito ufficiale
 
 - Aprite il sito ufficiale <a href="https://micropython.org" target="_blank">MicroPython</a>;
 - Cliccate sulla voce `Download`;
-- Scendete sull'elenco dei microcontrollori fino a trovare `ESP32 - EspressIf`
-- Scaricate l'ultimo file binario disponibile fra le `Firmware Releases` (l'ultima volta che ho guardato, la versione `v1.19.1`)
+- Scendete sull'elenco dei microcontrollori fino a trovare `ESP32 / WROOM - EspressIf`
+- Scaricate l'ultimo file binario disponibile fra le `Firmware Releases` (l'ultima volta che ho guardato, la versione `v1.22.1`)
 
 Adesso un attimo di riposo... siete praticamente già ad un terzo del lavoro!!!
 
