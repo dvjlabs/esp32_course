@@ -1,17 +1,20 @@
 # Prime Operazioni
 
 
-In questo capitolo installeremo il firmware MicroPython su ESP32 e faremo un primo test di funzionamento. L'obiettivo di questo capitolo è essere operativi... le spiegazioni sul codice (Micro)Python e il dispositivo ESP32... arrivano dopo!
+In questo capitolo installeremo il firmware MicroPython su ESP32 e faremo un primo test di funzionamento. 
+L'obiettivo di questo capitolo è essere operativi... le spiegazioni sul codice (Micro)Python e il dispositivo ESP32... arrivano dopo!
 
 
 ## Installazione Firmware
 
-Per caricare il firmware MicroPython occorre prima scaricarlo dal sito ufficiale!
+Per caricare il firmware MicroPython Thonny offre una comodissima interfaccia, che ci permette di scaricarlo e installarlo automaticamente!!!
 
-- Aprite il sito ufficiale <a href="https://micropython.org" target="_blank">MicroPython</a>;
+Se invece volete curiosare sul sito ufficiale MicroPython:
+
+- Aprite il link <a href="https://micropython.org" target="_blank">MicroPython</a>;
 - Cliccate sulla voce `Download`;
 - Scendete sull'elenco dei microcontrollori fino a trovare `ESP32 / WROOM - EspressIf`
-- Scaricate l'ultimo file binario disponibile fra le `Firmware Releases` (l'ultima volta che ho guardato, la versione `v1.22.1`)
+- Verificate l'ultima ***Firmware release*** disponibile  (l'ultima volta che ho guardato, la versione `v1.22.2`)
 
 Adesso un attimo di riposo... siete praticamente già ad un terzo del lavoro!!!
 
@@ -40,7 +43,9 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 - Si aprirà la finestra qui sotto. Vanno selezionate:
     
     - la porta su cui è collegata il microcontrollore ESP32
-    - il file del firmware da installare
+    - La famiglia della MCU (ESP32)
+    - La variante (EspressIf - ESP32 / WROOM)
+    - la versione (dovrebbe apparire automaticamente l'ultima installabile)
 
 - Poi clicca `installa`
 
@@ -50,9 +55,9 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
 <br>
 
-- ... attendi fiducioso un minutino buono...
-- ...
-- Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
+!!! tip "... attendi fiducioso un minutino buono..."
+
+  Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
 
 <br>
 
