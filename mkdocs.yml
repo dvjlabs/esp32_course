@@ -4,13 +4,25 @@ copyright: >
     dvjlabs (c) 2023-inf<br>
     <a href="#__consent">Change Cookie Settings</a>
 
-# ------------------------------------------------
+# ----------------------------------------------------------------------
 
 theme:
   name: material
   palette:
+    # Palette toggle for light mode
+    - scheme: default
       primary: black
+      accent: grey
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: grey
       accent: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   language: it
   features:
     - navigation.tabs
