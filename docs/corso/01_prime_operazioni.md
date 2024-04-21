@@ -56,8 +56,8 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 <br>
 
 !!! tip "... attendi fiducioso un minutino buono..."
-
-  Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
+    
+    Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
 
 <br>
 
