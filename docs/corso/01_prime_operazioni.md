@@ -95,15 +95,12 @@ from time import sleep
 # Ricordate?
 led = Pin(5, Pin.OUT)
 
-# come promesso...
-print("Hello, World!")
-
 while True:
     if led.value():
-        led.value(False)
+        led.off()
         print("LED Spento")
     else:
-        led.value(True)
+        led.on()
         print("LED Acceso")
     
     # Aspetta 1 secondo...
@@ -132,13 +129,22 @@ di un secondo le scritte `LED Spento` e `LED Acceso` mentre il LED si accende e 
 
 Ecco fatto!
 
-!!! tip "Il file boot.py"
 
-    Se hai notato, è presente anche un file `boot.py` nella memoria del dispositivo. Questo file contiene solo codice commentato. Il file viene 
-    eseguito automaticamente... al boot del dispositivo.
-    
-    Ritornerà utile usarlo per fare l'import di altri files (ed eseguirli automaticamente al boot) oppure per scriverci direttamente il codice da
-    eseguire.
+
+
+
+## "boot.py" e "main.py"
+
+
+Sicuramente avrai notato che nel filesystem dell'ESP32 è presente un file chiamato "boot.py". Questo file viene eseguito automaticamente... al boot del dispositivo.
+Quindi il poco codice che va lì dentro può servire per le prime indispensabili operazioni irrinunciabili: collegarsi ad una rete wifi, attivare il bluetooth, far partire webrepl (qualunque cosa esso sia)...
+
+Se invece dovete eseguire un codice, salvate il vostro file con il nome "main.py". Questo, rispetto a copiare il codice nel file "boot.py" presenterà diversi vantaggi:
+
+- sarà eseguito subito dopo il boot, ovvero quando il dispositivo è già pienamente funzionante.
+- sarà possibile collegarsi al dispositivo tramite (web)repl e stoppare/far ripartire il main senza dover riavvare tutto il dispositivo.
+- blah blah (finiscimi!!!)
+
 
 <br>
 <br>
