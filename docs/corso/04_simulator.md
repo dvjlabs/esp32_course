@@ -40,7 +40,7 @@ Quello che ha più colpito la nostra attenzione si chiama [https://wokwi.com/](h
           "type": "wokwi-custom-board",
           "id": "board",
           "attrs": { "env": "micropython-20231227-v1.22.0" }
-        },
+        }
       ],
        "connections": [
          [ "esp:TX", "$serialMonitor:RX", "", [] ],
