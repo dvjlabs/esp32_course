@@ -70,11 +70,21 @@ Ecco fatto!
 Siamo pronti per il primo esempio!
 
 
-## "Hello, World!" con ESP32 e MicroPython
+## Primo programma
 
-Tecnicamente questo... non è un HelloWorld program... nel senso che non scriveremo "Hello, World!", ma faremo accendere e spegnere un led.
-Ok... capisco la delusione: aggiungerò in cima la scritta "Hello, World!" e, ad ogni accensione o spegnimento scriverò una notifica del tipo
-"LED Acceso" o "LED Spento".
+Di solito i primi programmi che si scrivono testando un nuovo ambiente sono i famigerati HelloWorld! In questo caso particolare invece, andremo
+ad accendere e spegnere (ad intervalli programmati) il led fisico (detto, appunto, *programmabile*) disponibile nell'ESP32.
+
+Il programma scriverà inoltre su `REPL` una notifica del tipo "*LED Acceso*" o "*LED Spento*".
+
+
+!!! note "REPL"
+    `Read Eval Print Loop` è una caratteristica tipica dei linguaggi interpretati che forniscono accesso all'interprete da console.
+    In Python REPL viene identificato dai 3 maggiori `>>>` ed è effettivamente un punto di accesso all'interprete stesso. 
+    
+    Tu scrivi un comando, lui lo legge (Read), lo valuta (Eval), visualizza un output come risultato della sua valutazione (Print) e infine ripresenta
+    il prompt iniziale `>>>` (Loop).
+
 
 Il programma ci serve come esempio per prendere confidenza con i mondi MicroPython ed ESP32: non è importante adesso quello che fa il programma, 
 ma riuscire a capire tutte le operazioni da svolgere. Per questo ho deciso di dividere le operazioni in step successivi. Andiamo!!
@@ -94,16 +104,14 @@ from time import sleep
 # Il pin 5 è quello del LED programmabile
 # Ricordate?
 led = Pin(5, Pin.OUT)
+led.off()
 
 while True:
-    if led.value():
-        led.off()
-        print("LED Spento")
-    else:
-        led.on()
-        print("LED Acceso")
-    
-    # Aspetta 1 secondo...
+    led.on()
+    print("LED Acceso")
+    sleep(1)
+    led.off()
+    print("LED Spento")
     sleep(1)
 ```
 
@@ -124,8 +132,8 @@ Adesso salva il file come `led_test.py` dentro la memoria dell'ESP32. Per farlo:
 
 **Step 3**
 
-Esegui il codice, premendo `F5` oppure selezionando l'azione `Run current script`: dovresti vedere PRIMA la scritta `Hello, World!` e poi alternate
-di un secondo le scritte `LED Spento` e `LED Acceso` mentre il LED si accende e si spegne.
+Esegui il codice, premendo `F5` oppure selezionando l'azione `Run current script`: dovresti vedere le scritte `LED Spento` e `LED Acceso` alternate di un secondo
+mentre il LED si accende e si spegne.
 
 Ecco fatto!
 
@@ -143,7 +151,7 @@ Se invece dovete eseguire un codice, salvate il vostro file con il nome "main.py
 
 - sarà eseguito subito dopo il boot, ovvero quando il dispositivo è già pienamente funzionante.
 - sarà possibile collegarsi al dispositivo tramite (web)repl e stoppare/far ripartire il main senza dover riavvare tutto il dispositivo.
-- blah blah (finiscimi!!!)
+- blah blah (è meglio e basta! Se devi far partire codice all'avvio del dispositivo, mettilo in un file main.py)
 
 
 <br>
