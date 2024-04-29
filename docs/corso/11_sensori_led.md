@@ -88,23 +88,19 @@ A seconda del PIN scelto per il collegamento fisico del LED, dobbiamo indicare i
 from machine import Pin
 from time import sleep
 
-# Il pin 5 è quello del LED programmabile
-# Ricordate?
-led = Pin(5, Pin.OUT)
-
-# come promesso...
-print("Hello, World!")
+# xx è il numero del GPIO a cui hai collegato il led
+led = Pin(xx, Pin.OUT)
+led.off()
 
 while True:
-    if led.value():
-        led.value(False)
-        print("LED Spento")
-    else:
-        led.value(True)
-        print("LED Acceso")
-    
-    # Aspetta 1 secondo...
+    led.on()
+    print("LED Acceso")
     sleep(1)
+    
+    led.off()
+    print("LED Spento")
+    sleep(1)
+
 ```
 
 
@@ -131,15 +127,16 @@ Quello che manca è il codice di funzionamento. Eccolo:
 ``` python
 from machine import Pin
 
-# Ovviamente, vanno scelti accuratamente i valori del pin GPIO
-led = Pin(xxx, Pin.OUT)
-button = Pin(yyy, Pin.IN,Pin.PULL_UP) 
+# xx è il numero del GPIO a cui hai collegato il led
+# yy è il numero del GPIO a cui hai collegato il pulsante
+led = Pin(xx, Pin.OUT)
+button = Pin(yy, Pin.IN,Pin.PULL_UP) 
 
 while True:
     if not button.value():     
-        led.value(0)
+        led.off()
     else:
-        led.value(1)
+        led.on()
 ```
 
 
