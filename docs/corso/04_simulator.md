@@ -30,7 +30,7 @@ Quello che ha più colpito la nostra attenzione si chiama [https://wokwi.com/](h
 
 5. Modifica il file `diagram.json` in questo modo:
 
-    ``` json title="file diagram.json modificato" hl_lines="7"
+    ``` json title="file diagram.json modificato"
     {
       "version": 1,
       "author": "il tuo nome e cognome",
@@ -56,7 +56,7 @@ Quello che ha più colpito la nostra attenzione si chiama [https://wokwi.com/](h
 
 8. **Scrivi il codice** nell'editor online (file `main.py`) **e testalo** avviando l'esp32 virtuale.
 
-9. Quando hai finito, **scarica il progetto** (file `main.py` e `diagram.json`) dal menù in alto, facendo `Download project.zip` (e rinomina il file zip a piacimento)
+9. Quando hai finito, **scarica il progetto** (file `ProvaLED.zip`, contenente almeno i file `main.py` e `diagram.json`) dal menù in alto, facendo `Download project.zip`
 
 10. Consegna i compiti inviando il file `zip` al docente!
 
