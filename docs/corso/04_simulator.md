@@ -42,6 +42,10 @@ Quello che ha più colpito la nostra attenzione si chiama [https://wokwi.com/](h
           "attrs": { "env": "micropython-20231227-v1.22.0" }
         },
       ],
+       "connections": [
+         [ "esp:TX", "$serialMonitor:RX", "", [] ],
+         [ "esp:RX", "$serialMonitor:TX", "", [] ]
+       ],
       "dependencies": {}
     }
     ```
