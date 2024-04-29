@@ -50,7 +50,7 @@ Quello che ha più colpito la nostra attenzione si chiama [https://wokwi.com/](h
     }
     ```
 
-6. **Salva** e sei pronto all'azione!! (eventualmente indica il file diagram.json)
+6. **Salva** e sei pronto all'azione!! (indica il nome del tuo progetto! Ad esempio, ProvaLED)
 
 7. **Modifica il tuo progetto hardware** aggiungendo led, resistenze, collegamenti e tutto quanto necessario
 
