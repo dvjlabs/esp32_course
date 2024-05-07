@@ -45,7 +45,7 @@ import machine
 import time
 
 # il led da gestire 
-ledPin = machine.Pin(5)
+ledPin = machine.Pin(5, machine.Pin.OUT)
 
 # tempo di attesa in millisecondi 
 # varia questo numero per aumentare/diminuire la velocità di illuminazione del led
@@ -172,9 +172,9 @@ import machine
 import random
 import time
 
-pinR = machine.Pin(xxx, Pin.OUT)
-pinG = machine.Pin(yyy, Pin.OUT)
-pinB = machine.Pin(zzz, Pin.OUT)
+pinR = machine.Pin(xxx, machine.Pin.OUT)
+pinG = machine.Pin(yyy, machine.Pin.OUT)
+pinB = machine.Pin(zzz, machine.Pin.OUT)
 pwmR = machine.PWM(pinR,10000)
 pwmG = machine.PWM(pinG,10000)
 pwmB = machine.PWM(pinB,10000)
