@@ -70,12 +70,22 @@ nav:
         - MicroPython: corso/02_micropython.md 
         - GPIO: corso/03_GPIO.md
         - Esp32 simulator: corso/04_simulator.md
-        - "Sensori: LED(s)": corso/11_sensori_led.md
-        - "Sensori: Analog && PWM": corso/12_sensori_analog_pwm.md
-        - "Sensori: Buzzer(s)": corso/13_sensori_buzzer.md
-        - "Joystick": corso/14_joystick.md
- #       - Input/Output: corso/21_IO.md
-        - Networking: corso/31_network.md
+        - Sensori": corso/10_sensori.md
+        - Led e ledbar: corso/11_led_ledbar.md
+        - Buttons: corso/12_buttons.md
+        - Joystick: corso/13_joystick.md
+        - Analog & PWM: corso/20_analog_pwm.md
+        - RGB Led: corso/21_led_rgb.md
+        - Buzzer: corso/22_buzzer.md
+        - ADC: corso/30_ADC.md
+        - Potentiometer: corso/31_potentiometer.md
+        - Photoresistor: corso/32_photoresistor.md
+        - Sensori speciali: corso/40_sensors.md
+        - Display: corso/41_display.md
+        - Infrarossi: corso/42_IR.md
+        - Distance: corso/43_distance.md
+        - DHT22: corso/44_DHT22.md
+        - Networking: corso/99_network.md
     - Tutorials:
         - Introduzione: tutorials/00_intro.md
         - Socket Programming: tutorials/10_socket.md
