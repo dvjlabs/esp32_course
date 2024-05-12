@@ -70,17 +70,17 @@ nav:
         - MicroPython: corso/02_micropython.md 
         - GPIO: corso/03_GPIO.md
         - Esp32 simulator: corso/04_simulator.md
-        - Sensori": corso/10_sensori.md
+        - Sensori: corso/10_sensori.md
         - Led e ledbar: corso/11_led_ledbar.md
         - Buttons: corso/12_buttons.md
         - Joystick: corso/13_joystick.md
+        - Keypad: corso/14_keypad.md
         - Analog & PWM: corso/20_analog_pwm.md
         - RGB Led: corso/21_led_rgb.md
         - Buzzer: corso/22_buzzer.md
         - ADC: corso/30_ADC.md
         - Potentiometer: corso/31_potentiometer.md
         - Photoresistor: corso/32_photoresistor.md
-        - Sensori speciali: corso/40_sensors.md
         - Display: corso/41_display.md
         - Infrarossi: corso/42_IR.md
         - Distance: corso/43_distance.md
@@ -90,4 +90,5 @@ nav:
         - Introduzione: tutorials/00_intro.md
         - Socket Programming: tutorials/10_socket.md
         - Tello SDK: tutorials/20_tello.md
+        - PySerial: tutorials/30_pyserial.md
 

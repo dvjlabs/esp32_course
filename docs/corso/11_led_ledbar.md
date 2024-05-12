@@ -11,7 +11,7 @@ nel pin più lungo e il polo negativo (anodo) nel pin più corto.
 ![LED](images/LED.png)
 
 I led lavorano ad una corrente di attraversamento compresa fra 1.9V e 3.3V. Se la corrente supera questo voltaggio, il LED si danneggerà e magari...
-prenderà fuoco. ::blink::
+prenderà fuoco. :wink:
 
 
 Questo progetto è identico a quello del LED integrato nella MCU che lampeggia. La differenza (sostanziale)
@@ -31,7 +31,7 @@ Vediamo adesso come costruire il circuito del LED:
 
 A seconda del PIN scelto per il collegamento fisico del LED, dobbiamo indicare il numero nel codice (io ci ho lasciato il 5 del led integrato):
 
-``` python
+``` py title="Led lampeggiante"
 from machine import Pin
 from time import sleep
 
@@ -71,7 +71,7 @@ Fatto questo, andate a collegare i componenti come in figura:
 Adesso tramite codice andiamo a fornire un comportamento al nostro progetto: Facciamo in modo che ogni secondo la barra si riempa
 sempre più e poi inizi a svuotarsi. Ecco il codice:
 
-``` python
+``` py title="ledbar che si carica e scarica"
 import time
 from machine import Pin
 
@@ -97,25 +97,36 @@ while True:
 <!-- ################################################################################# -->
 ## Esercizi
 
+!!!tip "Dal vivo o con il simulatore!"
+
+    Ognuno dei seguenti esercizi può essere svolto indifferentemente dal vivo, ovvero con ESP32 e sensori reali,
+    oppure con il simulatore wokwi (ad esempio come compiti per casa)!!!
+  
+  
+
 <br>
 
 **Luci della Polizia!**
 
-Implementare un circuito con due luci, una rossa e una blu, che si accendono alternativamente.
+Due led, uno rosso e uno blu. Si accendono alternativamente ogni decimo di secondo (regolate il tempo necessario, se un decimo è poco o troppo!)
+Quando la luce rossa si accende, la blu si spegne e viceversa
 
 <br>
 
 **Semaforo**
 
-Implementare un circuito con tre luci: verde, giallo, rossa a rappresentare un semaforo. Tramite codice, con un opportuno timer,
-programmare la giusta alternanza di luci tipica di un semaforo.
+Tre led: verde, giallo, rosso. Implementazione di un semaforo. All'inizio la luce gialla lampeggia (accesa.. spenta.. accesa.. spenta). Poi tutto un tratto (scegliete voi quanto) parte il semaforo! Prima la luce rossa per due secondi, poi la luce verde per 4 secondi, la luce gialla per 1 secondo. Poi rosso e si ricomincia!
+
 
 <br>
 
 **LED...Bar**
 
+Una ledbar collegata all'esp32. La barra inizia da spenta e poi inizia il *caricamento* accendendo prima un led, poi due, poi tre... e così via ogni secondo.
+Quando la barra è piena rimane accesa per due secondi, poi si spegne completamente per un secondo, poi si riaccende completamente per due secondi.
+A questo punto inizia a *scaricarsi*. Ogni secondo si spegne un led fino a che la barra non sia completamente spenta.<br>
+A questo punto il programma termina.
 
-Parte il caricamento della barra, una luce ogni secondo. Quando è piena, inizia lo spegnimento, nello stesso ordine, un led al secondo.
 
 
 
