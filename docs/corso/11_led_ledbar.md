@@ -14,29 +14,23 @@ I led lavorano ad una corrente di attraversamento compresa fra 1.9V e 3.3V. Se l
 prenderà fuoco. :wink:
 
 
-Questo progetto è identico a quello del LED integrato nella MCU che lampeggia. La differenza (sostanziale)
-sta nel fatto che in questo progetto il LED è esterno e collegato ad un PIN a piacere (fra quelli... ammissibili).
-
-Vediamo la lista dei componenti necessari (oltre ovviamente all'ESP32 e alla breadboard su cui è alloggiato):
 
 
-![Lista dei componenti](projects/LED_material.png)
+<!-- ################################################################################# -->
+### LED Integrato
 
 
-Vediamo adesso come costruire il circuito del LED:
+Come abbiamo (probabilmente) già anticipato, la nostra MCU (il microcontrollore, l'ESP32) contiene un led integrato in essa e collegato
+direttamente al Pin fisico numero 5.
+
+Per farlo funzionare sarà necessario semplicemente eseguire un codice del genere:
 
 
-![LED Schema](projects/LED_schema.png)
-
-
-A seconda del PIN scelto per il collegamento fisico del LED, dobbiamo indicare il numero nel codice (io ci ho lasciato il 5 del led integrato):
-
-``` py title="Led lampeggiante"
+``` py title="Led integrato lampeggiante"
 from machine import Pin
 from time import sleep
 
-# xx è il numero del GPIO a cui hai collegato il led
-led = Pin(xx, Pin.OUT)
+led = Pin(5, Pin.OUT)
 led.off()
 
 while True:
@@ -51,18 +45,30 @@ while True:
 ```
 
 
+Non c'è molto altro da aggiungere :smile:
+
+
+
+<!-- ################################################################################# -->
+### LED Fisico
+
+
+In questo progetto dobbiamo costruire un circuito per collegare un led all'ESP32. Il circuito dovrà realizzare uno schema tipo il seguente:
+
+
+![LED Schema](projects/LED_schema.png)
+
+
+A seconda del PIN scelto per il collegamento fisico del LED, modificate il codice dell'esempio precedente per far accendere il led che avete appena collegato.
+
+
 
 <!-- ################################################################################# -->
 ## LED Bar
 
 
-La barra dei LED è un semplice componente in cui sono integrati ben 8 LED! Per il nostro progetto avremo bisogno di:
-
-
-![Lista dei componenti](projects/LEDBar_material.png)
-
-
-Fatto questo, andate a collegare i componenti come in figura:
+La barra dei LED è un semplice componente in cui sono integrati ben 8 LED (o addirittura 10!!)! 
+Il collegamento fisico al microcontrollore è una semplice iterazione del circuito del LED:
 
 
 ![LEDBAR Schema](projects/LEDBar_schema.png)
