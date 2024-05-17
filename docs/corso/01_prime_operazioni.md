@@ -142,16 +142,33 @@ Ecco fatto!
 
 
 
-## "boot.py" e "main.py"
+## boot.py
+
+Sicuramente avrai notato che nel filesystem dell'ESP32 è presente un file chiamato `boot.py`. Questo file viene eseguito automaticamente... al boot del dispositivo.
+Quindi il poco codice che va lì dentro può servire per le prime indispensabili operazioni irrinunciabili: 
+
+- collegarsi ad una rete wifi, 
+- attivare il bluetooth, 
+- far partire webrepl (qualunque cosa esso sia)...
+
+Basta!
+
+Il boot è l'operazione più importante per un microcontrollore che, dopo questa fase, si mette in uno stato di *ripetizione infinita* del codice che dovrà eseguire
+finché il dispositivo è acceso.
+
+Attenti a quello che scrivete nel file "boot.py"! Qualunque errore lì si tradurra in problemi all'avvio e in grandi difficoltà per la risoluzione! Qualunque codice che ci copiate
+va testato ed eseguito **prima** su un altro file e poi spostato lì dentro.
 
 
-Sicuramente avrai notato che nel filesystem dell'ESP32 è presente un file chiamato "boot.py". Questo file viene eseguito automaticamente... al boot del dispositivo.
-Quindi il poco codice che va lì dentro può servire per le prime indispensabili operazioni irrinunciabili: collegarsi ad una rete wifi, attivare il bluetooth, far partire webrepl (qualunque cosa esso sia)...
+## main.py
 
-Se invece dovete eseguire un codice, salvate il vostro file con il nome "main.py". Questo, rispetto a copiare il codice nel file "boot.py" presenterà diversi vantaggi:
+
+Se volete fare in modo che, appena finite le operazioni di boot, il microcontrollore cominci ad eseguire un codice qualunque, il file ove dovete salvarlo si chiama `main.py`.
+
+Il codice lì dentro:
 
 - sarà eseguito subito dopo il boot, ovvero quando il dispositivo è già pienamente funzionante.
-- sarà possibile collegarsi al dispositivo tramite (web)repl e stoppare/far ripartire il main senza dover riavvare tutto il dispositivo.
+- sarà facile da stoppare con un semplice CTRL + C oppure con lo stop del micropython.
 - blah blah (è meglio e basta! Se devi far partire codice all'avvio del dispositivo, mettilo in un file main.py)
 
 
