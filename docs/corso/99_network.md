@@ -12,22 +12,46 @@ Per la gestione del Wifi, si utilizza il modulo `network`, già disponibile nel 
 Vediamo come
 
 <!-- ################################################################################# -->
-## Collegarsi ad una rete Wifi
+## Funzionalità del modulo network
 
 
 A volte visualizzare un pò di codice ben commentato rende le cose più semplici che tante parole...
 
-``` python
-# RICORDA di importare il modulo network.
-import network
 
-# crea l'oggetto interfaccia WLAN
+**IMPORTA** il modulo network.
+
+``` python
+import network
+```
+
+**CREA** l'oggetto interfaccia WLAN
+
+``` python
 # l'opzione network.STA_IF crea una interfaccia in grado di connettersi ad una rete Wifi
 wlan = network.WLAN(network.STA_IF)
 
-# attivala
-wlan.active(True)
+# l'opzione network.AP_IF crea una interfaccia Access-Point
+wlan = network.WLAN(network.AP_IF)
+```
 
+**CONFIGURA**, se necessario, l'oggetto interfaccia WLAN
+
+``` python
+# Imposta il nome (si chiama SSID) della rete Wifi
+wlan.config(ssid='NomeReteWifi')
+# oppure
+wlan.config(ssid='NomeReteWifi' , security=3 , key="PasswordReteWifi")
+```
+
+**ATTIVA** l'interfaccia
+
+``` python
+wlan.active(True)
+```
+
+**ESEGUI** le operazioni che ritieni necessarie. Qui ho elencato alcuni esempi in ordine sparso...
+
+``` python
 # scansiona per individuare le reti Wifi disponibili 
 network_list = wlan.scan()
 
@@ -41,8 +65,56 @@ wlan.isconnected()
 # visualizza la configurazione di rete.
 # Ritorna la tupla ( 'IP', 'SubnetMask' , 'gateway' , 'DNS')
 wlan.ifconfig()
+
+# configura la rete del dispositivo con le seguenti impostazioni: ( 'IP', 'SubnetMask' , 'gateway' , 'DNS')
+wlan.ifconfig( ('IP','SubnetMask','gateway','DNS') )
 ```
 
+<!-- ################################################################################# -->
+## Collegarsi ad una rete Wifi
+
+Vediamo un paio di esempi di collegamento ad una rete wifi da parte del dispositivo ESP32. Nel primo andremo ad acquisire automaticamente le informazioni di rete,
+nel secondo andremo ad impostarle manualmente appena possibile.
+
+``` py title="Connessione ad una rete WIFI ed indirizzamento tramite DHCP"
+import network
+import time
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+
+# connette l'interfaccia WLAN alla rete Wifi SSID con chiave KEY
+wlan.connect('ssid', 'key')
+
+while not wlan.isconnected():
+    print("Connecting...")
+    time.sleep(0.5)
+
+print("CONNECTED")
+print("Network settings:", wlan.ifconfig())
+```
+
+Bene! Adesso impostiamo manualmente le informazioni di rete
+
+``` py title="Connessione ad una rete WIFI con indirizzamento statico"
+import network
+import time
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+
+# configurazione di rete: Questi numeri potrebbero funzionare a scuola, con una opportuna x fra 1 e 254
+wlan.ifconfig( ('10.10.12.x','255.255.0.0','10.10.0.1','8.8.8.8') )
+
+# connette l'interfaccia WLAN alla rete Wifi SSID con chiave KEY
+wlan.connect('ssid', 'key')
+
+while not wlan.isconnected():
+    print("Connecting...")
+    time.sleep(0.5)
+
+print("CONNECTED")
+```
 
 
 <!-- ################################################################################# -->
@@ -54,11 +126,9 @@ Wifi, a cui evetualmente far connettere altri dispositivi.
 Vediamo il codice:
 
 ``` python
-# RICORDA di importare il modulo network.
 import network
 
-# crea l'oggetto interfaccia WLAN
-# l'opzione network.AP_IF crea una interfaccia Access-Point
+# crea l'oggetto interfaccia WLAN con opzione network.AP_IF
 wlan = network.WLAN(network.AP_IF)
 
 # Imposta il nome (si chiama SSID) della rete Wifi
@@ -155,28 +225,30 @@ Infine, quando avete riavviato l'esp32, provate a connettervi selezionando il pr
 # THE led
 import machine
 led = machine.Pin(5, machine.Pin.OUT)
-led.value(1)
+led.off()
 
 # THE web server
 import socket
 
 # ....
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('', 80))
-s.listen()
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('0.0.0.0', 80))
+server.listen(8) # max number of simultaneous connections
+server.setblocking(False)
 
 while True:
-    conn, addr = s.accept()
+    conn, addr = server.accept()
     print('Got a connection from ', str(addr))
     
     request = str( conn.recv(1024) )
+    request_line = request.split('\n')[0]
     
-    if 'led=on' in request:
+    if 'led=on' in request_line:
         print('LED ON')
-        led.value(0)
-    if 'led=off' in request:
+        led.on()
+    if 'led=off' in request_line:
         print('LED OFF')
-        led.value(1)
+        led.off()
     
     html = ""
     html += '<h1>Web LED</h1>' 
@@ -188,6 +260,57 @@ while True:
     conn.send('Connection: close\n\n')
     conn.sendall(html)
     conn.close()
+```
+
+<!-- ################################################################################# -->
+## Async Web Server
+
+Questo codice è sperimentale. L'ho scritto durante le vacanze di Natale... 
+
+``` python
+import asyncio
+import socket
+
+async def handle_client(client):
+    loop = asyncio.get_event_loop()
+
+    request = (await loop.sock_recv(client, 1024)).decode('utf8')
+    request_line = request.split('\n')[0]
+    print("request line:", request_line)
+    
+    reply = ''
+    reply += 'HTTP/1.1 200 OK\n'
+    reply += 'Content-Type: text/html\n'
+    reply += 'Connection: close\n\n'
+    
+    if 'led=on' in request_line:
+        print('LED ON')
+    if 'led=off' in request_line:
+        print('LED OFF')
+
+    reply += '<h1>Web LED</h1>' 
+    reply += '<a href="/?led=on"><button class="button">ON</button></a>'
+    reply += '<a href="/?led=off"><button class="button button2">OFF</button></a>'
+    reply += '\n'
+    
+    await loop.sock_sendall(client, reply.encode('utf8'))
+    client.close()
+
+async def run_server():
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind(('0.0.0.0', 8080))
+    server.listen(8) # max number of simultaneous connections
+    server.setblocking(False)
+
+    loop = asyncio.get_event_loop()
+
+    while True:
+        client, addr = await loop.sock_accept(server)
+        loop.create_task(handle_client(client))
+
+# -----------------------------------------------------------------------------
+if __name__ == "__main__":
+    asyncio.run(run_server())
 ```
 
 
