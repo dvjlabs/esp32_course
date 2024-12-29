@@ -98,22 +98,22 @@ Se non lo hai già fatto, connetti il tuo ESP32 al computer, apri Thonny e cambi
 Copia su Thonny il seguente codice:
 
 ``` py
-from machine import Pin
-from time import sleep
+import machine
+import time
 
 # Il pin 5 è quello del LED programmabile
 # Ricordate?
-led = Pin(5, Pin.OUT)
+led = machine.Pin(5, Pin.OUT)
 led.off()
 
 while True:
     led.on()
     print("LED Acceso")
-    sleep(1)
+    time.sleep(1)
     
     led.off()
     print("LED Spento")
-    sleep(1)
+    time.sleep(1)
 ```
 
 **Step 2**

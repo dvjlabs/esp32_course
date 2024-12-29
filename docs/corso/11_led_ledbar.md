@@ -27,21 +27,22 @@ Per farlo funzionare sarà necessario semplicemente eseguire un codice del gener
 
 
 ``` py title="Led integrato lampeggiante"
-from machine import Pin
-from time import sleep
+import machine
+import time
 
-led = Pin(5, Pin.OUT)
+# Il pin 5 è quello del LED programmabile
+# Ricordate?
+led = machine.Pin(5, Pin.OUT)
 led.off()
 
 while True:
     led.on()
     print("LED Acceso")
-    sleep(1)
+    time.sleep(1)
     
     led.off()
     print("LED Spento")
-    sleep(1)
-
+    time.sleep(1)
 ```
 
 
@@ -78,8 +79,8 @@ Adesso tramite codice andiamo a fornire un comportamento al nostro progetto: Fac
 sempre più e poi inizi a svuotarsi. Ecco il codice:
 
 ``` py title="ledbar che si carica e scarica"
+import machine
 import time
-from machine import Pin
 
 # Gli 8 pin, in ordine come connessi alla ledbar
 pins=[a,b,c,d,e,f,g,h,i]
@@ -87,7 +88,7 @@ pins=[a,b,c,d,e,f,g,h,i]
 acceso = True
 while True:
     for p in pins:
-        led = Pin( p, Pin.OUT)
+        led = machine.Pin( p, Pin.OUT)
         led.value( acceso )
         time.sleep_ms(500)
     
