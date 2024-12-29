@@ -17,12 +17,15 @@ Vediamo come
 
 A volte visualizzare un pò di codice ben commentato rende le cose più semplici che tante parole...
 
+<br>
 
 **IMPORTA** il modulo network.
 
 ``` python
 import network
 ```
+
+<br>
 
 **CREA** l'oggetto interfaccia WLAN
 
@@ -34,6 +37,8 @@ wlan = network.WLAN(network.STA_IF)
 wlan = network.WLAN(network.AP_IF)
 ```
 
+<br>
+
 **CONFIGURA**, se necessario, l'oggetto interfaccia WLAN
 
 ``` python
@@ -43,11 +48,15 @@ wlan.config(ssid='NomeReteWifi')
 wlan.config(ssid='NomeReteWifi' , security=3 , key="PasswordReteWifi")
 ```
 
+<br>
+
 **ATTIVA** l'interfaccia
 
 ``` python
 wlan.active(True)
 ```
+
+<br>
 
 **ESEGUI** le operazioni che ritieni necessarie. Qui ho elencato alcuni esempi in ordine sparso...
 
@@ -76,6 +85,8 @@ wlan.ifconfig( ('IP','SubnetMask','gateway','DNS') )
 Vediamo un paio di esempi di collegamento ad una rete wifi da parte del dispositivo ESP32. Nel primo andremo ad acquisire automaticamente le informazioni di rete,
 nel secondo andremo ad impostarle manualmente appena possibile.
 
+<br>
+
 ``` py title="Connessione ad una rete WIFI ed indirizzamento tramite DHCP"
 import network
 import time
@@ -94,7 +105,9 @@ print("CONNECTED")
 print("Network settings:", wlan.ifconfig())
 ```
 
+
 Bene! Adesso impostiamo manualmente le informazioni di rete
+
 
 ``` py title="Connessione ad una rete WIFI con indirizzamento statico"
 import network
@@ -123,6 +136,7 @@ print("CONNECTED")
 Il codice che presentiamo adesso serve invece a configurare l'interfaccia WLAN per creare una propria rete
 Wifi, a cui evetualmente far connettere altri dispositivi.
 
+
 Vediamo il codice:
 
 ``` python
@@ -140,7 +154,9 @@ ap.config(ssid='NomeReteWifi' , security=3 , key="PasswordReteWifi")
 wlan.active(True)
 ```
 
+
 L'IP predefinito in modalità Access Point è `192.168.4.1`. I client connessi partono da `.2`.
+
 
 Se voleste elencare i client connessi...
 
@@ -221,6 +237,10 @@ Infine, quando avete riavviato l'esp32, provate a connettervi selezionando il pr
 <!-- ################################################################################# -->
 ## Web Server
 
+
+Un semplice esempio di web server, per poter studiare e modificare un pochino il codice, per accendere e spegnere il led di sistema dell'ESP32
+
+
 ``` python
 # THE led
 import machine
@@ -265,7 +285,9 @@ while True:
 <!-- ################################################################################# -->
 ## Async Web Server
 
+
 Questo codice è sperimentale. L'ho scritto durante le vacanze di Natale... 
+
 
 ``` python
 import asyncio
