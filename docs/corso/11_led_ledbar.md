@@ -5,8 +5,8 @@ Introduciamo i componenti fondamentali con cui andremo a lavorare:
 
 ## LED
 
-Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto. Tipicamente ha due poli: il polo positivo (catodo)
-nel pin più lungo e il polo negativo (anodo) nel pin più corto. 
+Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto. 
+Tipicamente ha due poli: **il polo positivo nel pin più lungo** (catodo) e **il polo negativo nel pin più corto** (anodo). 
 
 ![LED](images/LED.png)
 
