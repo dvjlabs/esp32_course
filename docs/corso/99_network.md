@@ -116,11 +116,11 @@ import time
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 
-# configurazione di rete: Questi numeri potrebbero funzionare a scuola, con una opportuna x fra 1 e 254
-wlan.ifconfig( ('10.10.12.x','255.255.0.0','10.10.0.1','8.8.8.8') )
-
 # connette l'interfaccia WLAN alla rete Wifi SSID con chiave KEY
 wlan.connect('ssid', 'key')
+
+# configurazione di rete: Questi numeri potrebbero funzionare a scuola, con una opportuna x fra 1 e 254
+wlan.ifconfig( ('10.10.12.x','255.255.0.0','10.10.0.1','8.8.8.8') )
 
 while not wlan.isconnected():
     print("Connecting...")
@@ -148,7 +148,7 @@ wlan = network.WLAN(network.AP_IF)
 # Imposta il nome (si chiama SSID) della rete Wifi
 wlan.config(ssid='NomeReteWifi')
 # oppure
-ap.config(ssid='NomeReteWifi' , security=3 , key="PasswordReteWifi")
+wlan.config(ssid='NomeReteWifi' , security=3 , key="PasswordReteWifi")
 
 # attivala
 wlan.active(True)
