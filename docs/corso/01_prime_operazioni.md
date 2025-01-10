@@ -103,7 +103,7 @@ import time
 
 # Il pin 5 è quello del LED programmabile
 # Ricordate?
-led = machine.Pin(5, Pin.OUT)
+led = machine.Pin(5, machine.Pin.OUT)
 led.off()
 
 while True:

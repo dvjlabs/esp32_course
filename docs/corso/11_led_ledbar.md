@@ -32,7 +32,7 @@ import time
 
 # Il pin 5 è quello del LED programmabile
 # Ricordate?
-led = machine.Pin(5, Pin.OUT)
+led = machine.Pin(5, machine.Pin.OUT)
 led.off()
 
 while True:
@@ -88,7 +88,7 @@ pins=[a,b,c,d,e,f,g,h,i]
 acceso = True
 while True:
     for p in pins:
-        led = machine.Pin( p, Pin.OUT)
+        led = machine.Pin( p, machine.Pin.OUT)
         led.value( acceso )
         time.sleep_ms(500)
     
