@@ -12,16 +12,10 @@ sui pulsanti e i led, governati da un ESP32 e controllati tramite codice MicroPy
 Nel secondo progetto abbiamo un pulsante collegato ad un LED nel nostro circuito. Incredibilmente... 
 quando si clicca il pulsante dovrebbe accendersi la luce!!!
 
-Vediamo la lista dei componenti:
+Vediamo lo schema elettrico del progetto:
 
 
-![Lista dei componenti](projects/LED_Button_material.png)
-
-
-E adesso vediamo lo schema elettrico del progetto:
-
-
-![Schema LED Button](projects/LED_Button_schema.png)
+![Schema LED Button](https://esp32io.com/images/tutorial/esp32-button-led-wiring-diagram.jpg)
 
 
 Quello che manca è il codice di funzionamento. Eccolo:
