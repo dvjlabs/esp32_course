@@ -19,9 +19,9 @@ ESP32 è un microcontrollore a basso costo, con Wifi e bluetooth integrato, oltr
 
 !!! note "MicroControllore"
 
-    Un **MicroControllore (MCU)** è un dispositivo elettronico integrato in un unico circuito, 
+    Un **MicroControllore (MCU)** è un dispositivo elettronico integrato in un unico circuito,
     in grado di eseguire in maniera autosufficiente un determinato software.
-    
+
     Si presenta come alternativa al **MicroProcessore (CPU)** che è un dispositivo con maggiore potenza di calcolo, ma con la
     continua necessità di interfacciarsi con periferiche esterne, tipo RAM, ROM, etc.. per la selezione del software da eseguire.
 
@@ -30,7 +30,7 @@ Un microcontrollore, una volta che vi viene caricato un software da eseguire, lo
 È dunque la soluzione ideale per la realizzazione di qualsiasi dispositivo elettronico: una calcolatrice, la macchina del caffè, una lavatrice moderna, la stampante 3D... sono tutti
 oggetti realizzati tramite MCU!
 
-Risulta dunque evidente quanto i MicroControllori rappresentino uno dei mattoni fondamentali dell'evoluzione dell'informatica e delle telecomunicazioni 
+Risulta dunque evidente quanto i MicroControllori rappresentino uno dei mattoni fondamentali dell'evoluzione dell'informatica e delle telecomunicazioni
 conosciuta con il nome di <a href="https://it.wikipedia.org/wiki/Internet_delle_cose" target="_blank">Internet of Things</a>.
 
 
@@ -39,16 +39,17 @@ conosciuta con il nome di <a href="https://it.wikipedia.org/wiki/Internet_delle_
 <!-- ######################################################################################################### -->
 
 
-## Specifiche ESP32 in dotazione a scuola
+## Specifiche tecniche
 
 
-Premessa: queste info qui sotto sono *roba da nerd*... leggetele con il rischio di appassionarvi a certe precisazioni!!
+!!! warning "Attenzione!"
+    Le informazioni qui sotto sono *roba da nerd*... leggetele con il rischio di appassionarvi a certe precisazioni!!
 
-La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi buoni... lo potrete leggere sul dispositivo stesso):
+La ESP32 in dotazione a scuola è una `ESP32-WROOM-32 dLOIN32` (se avete gli occhi buoni... lo potrete leggere sul dispositivo stesso):
 
 - Deve essere alimentato a 3.3 Volt
 - Consuma fino a 500mA
-- Il controllore **ESP32-WROOM-32**, incredibilmente a 32 bit, è dual-core basato su Xtensa LX6
+- Il controllore **ESP32-WROOM-32**, è un dual-core a 32 bit Xtensa LX6
 - Ha una frequenza di 240 Mhz
 - La memoria predefinita è una ROM di 32 Mb a 40 Mhz
 - Il **WiFi** supporta i protocolli 802.11 b/g/n, fino a 150 Mbps
@@ -63,7 +64,7 @@ La ESP32 in dotazione a scuola è una ESP32-WROOM-32 LOIN32 (se avete gli occhi 
 - Supporta: ARDUINO, NodeMCU, **MicroPython**, ESP-IDF
 
 
-<!-- ######################################################################################################### -->
+<!-- ###################################################################### -->
 
 
 ## MicroPython
@@ -84,11 +85,10 @@ Il prossimo capitolo spiega proprio questo!
 !!! tip "Domanda"
 
     A proposito... sapete qual è l'editor Python più semplice ed adatto per la programmazione di microcontrollori basati su MicroPython??
-    
+
     Se avete risposto <a href="https://thonny.org" target="_blank">Thonny</a>, avete dato la risposta esatta!!!
 
 
 <br>
 <br>
 <br>
-

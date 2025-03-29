@@ -1,25 +1,13 @@
 # Prime Operazioni
 
 
-In questo capitolo installeremo il firmware MicroPython su ESP32 e faremo un primo test di funzionamento. 
+In questo capitolo installeremo il firmware MicroPython su ESP32 e faremo un primo test di funzionamento.
 L'obiettivo di questo capitolo è essere operativi... le spiegazioni sul codice (Micro)Python e il dispositivo ESP32... arrivano dopo!
 
 
 ## Installazione Firmware
 
 Per caricare il firmware MicroPython Thonny offre una comodissima interfaccia, che ci permette di scaricarlo e installarlo automaticamente!!!
-
-Se invece volete curiosare sul sito ufficiale MicroPython:
-
-- Aprite il link <a href="https://micropython.org" target="_blank">MicroPython</a>;
-- Cliccate sulla voce `Download`;
-- Scendete sull'elenco dei microcontrollori fino a trovare `ESP32 / WROOM - EspressIf`
-- Verificate l'ultima ***Firmware release*** disponibile  (l'ultima volta che ho guardato, la versione `v1.22.2`)
-
-Adesso un attimo di riposo... siete praticamente già ad un terzo del lavoro!!!
-
-La seconda fase consiste semplicemente nel collegare il microcontrollore ESP32 al nostro computer tramite un cavo USB.<br>
-Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 
 - Aprite `Thonny`
 - Dal menù `ESEGUI`, seleziona `CONFIGURA L'INTERPRETE`
@@ -34,14 +22,14 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 !!! note "La giusta porta COM"
 
     Come vedete in figura, la MCU utilizza una porta COM supportata dal driver **Silicon Labs CP210x USB to UART Bridge**.
-    
+
     Se nel tuo computer manca... chiedi al prof!!!
 
 <br>
 
 - Adesso selezionate `Installa o Aggiorna MicroPython`
 - Si aprirà la finestra qui sotto. Vanno selezionate:
-    
+
     - la porta su cui è collegata il microcontrollore ESP32
     - La famiglia della MCU (ESP32)
     - La variante (EspressIf - ESP32 / WROOM)
@@ -56,7 +44,7 @@ Mi immagino che siate già riusciti nell'impresa... pronti per l'ultima fase:
 <br>
 
 !!! tip "... attendi fiducioso un minutino buono..."
-    
+
     Al termine della procedura dovrebbe apparire l'interprete MicroPython nella shell di Thonny
 
 <br>
@@ -80,13 +68,13 @@ Il programma scriverà inoltre su `REPL` una notifica del tipo "*LED Acceso*" o 
 
 !!! note "REPL"
     `Read Eval Print Loop` è una caratteristica tipica dei linguaggi interpretati che forniscono accesso all'interprete da console.
-    In Python REPL viene identificato dai 3 maggiori `>>>` ed è effettivamente un punto di accesso all'interprete stesso. 
-    
+    In Python REPL viene identificato dai 3 maggiori `>>>` ed è effettivamente un punto di accesso all'interprete stesso.
+
     Tu scrivi un comando, lui lo legge (Read), lo valuta (Eval), visualizza un output come risultato della sua valutazione (Print) e infine ripresenta
     il prompt iniziale `>>>` (Loop).
 
 
-Il programma ci serve come esempio per prendere confidenza con i mondi MicroPython ed ESP32: non è importante adesso quello che fa il programma, 
+Il programma ci serve come esempio per prendere confidenza con i mondi MicroPython ed ESP32: non è importante adesso quello che fa il programma,
 ma riuscire a capire tutte le operazioni da svolgere. Per questo ho deciso di dividere le operazioni in step successivi. Andiamo!!
 
 **Step 0**
@@ -97,7 +85,7 @@ Se non lo hai già fatto, connetti il tuo ESP32 al computer, apri Thonny e cambi
 
 Copia su Thonny il seguente codice:
 
-``` py
+``` python
 import machine
 import time
 
@@ -110,7 +98,7 @@ while True:
     led.on()
     print("LED Acceso")
     time.sleep(1)
-    
+
     led.off()
     print("LED Spento")
     time.sleep(1)
@@ -145,10 +133,10 @@ Ecco fatto!
 ## boot.py
 
 Sicuramente avrai notato che nel filesystem dell'ESP32 è presente un file chiamato `boot.py`. Questo file viene eseguito automaticamente... al boot del dispositivo.
-Quindi il poco codice che va lì dentro può servire per le prime indispensabili operazioni irrinunciabili: 
+Quindi il poco codice che va lì dentro può servire per le prime indispensabili operazioni irrinunciabili:
 
-- collegarsi ad una rete wifi, 
-- attivare il bluetooth, 
+- collegarsi ad una rete wifi,
+- attivare il bluetooth,
 - far partire webrepl (qualunque cosa esso sia)...
 
 Basta!
@@ -175,4 +163,3 @@ Il codice lì dentro:
 <br>
 <br>
 <br>
-

@@ -1,8 +1,9 @@
 site_name: MicroPython e ESP32
 site_author: dvjlabs team
 copyright: >
-    dvjlabs (c) 2023-inf<br>
-    <a href="#__consent">Change Cookie Settings</a>
+  dvjlabs (c) 2023-inf<br>
+  <a href="#__consent">Change Cookie Settings</a><br>
+  This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
 
 # ----------------------------------------------------------------------
 
@@ -14,7 +15,7 @@ theme:
       primary: black
       accent: grey
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
@@ -25,8 +26,10 @@ theme:
         name: Switch to light mode
   language: it
   features:
-    - navigation.tabs
     - navigation.footer
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
     - toc.integrate
     - content.code.copy
   font: false
@@ -34,17 +37,17 @@ extra:
   consent:
     title: Consenso all'utilizzo dei cookies
     description: >
-      Questo sito memorizza alcuni cookies solo per riconoscere un visitatore 
+      Questo sito memorizza alcuni cookies solo per riconoscere un visitatore
       che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione
       della pagina selezionato.<br>
       Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br>
       Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
     actions:
-     - accept
-     - reject
+      - accept
+      - reject
 
 extra_css:
-- stylesheets/extra.css
+  - stylesheets/extra.css
 
 # ------------------------------------------------
 
@@ -54,8 +57,8 @@ markdown_extensions:
   - toc: {}
   - def_list: {}
   - pymdownx.emoji: {}
-  - pymdownx.tasklist: {custom_checkbox: True}
-  - pymdownx.highlight: {anchor_linenums: True}
+  - pymdownx.tasklist: { custom_checkbox: True }
+  - pymdownx.highlight: { anchor_linenums: True }
   - pymdownx.inlinehilite: {}
   - pymdownx.snippets: {}
   - pymdownx.superfences: {}
@@ -63,32 +66,33 @@ markdown_extensions:
 # ------------------------------------------------
 
 nav:
-    - Home: index.md
-    - Corso:
-        - Introduzione: corso/00_intro.md
-        - Prime Operazioni: corso/01_prime_operazioni.md
-        - MicroPython: corso/02_micropython.md 
-        - GPIO: corso/03_GPIO.md
-        - Esp32 simulator: corso/04_simulator.md
-        - Sensori: corso/10_sensori.md
-        - Led e ledbar: corso/11_led_ledbar.md
-        - Buttons: corso/12_buttons.md
-        - Joystick: corso/13_joystick.md
-        - Keypad: corso/14_keypad.md
-        - Analog & PWM: corso/20_analog_pwm.md
-        - RGB Led: corso/21_led_rgb.md
-        - Buzzer: corso/22_buzzer.md
-        - ADC: corso/30_ADC.md
-        - Potentiometer: corso/31_potentiometer.md
-        - Photoresistor: corso/32_photoresistor.md
-        - Display: corso/41_display.md
-        - Infrarossi: corso/42_IR.md
-        - Distance: corso/43_distance.md
-        - DHT22: corso/44_DHT22.md
-        - Networking: corso/99_network.md
-    - Tutorials:
-        - Introduzione: tutorials/00_intro.md
-        - Socket Programming: tutorials/10_socket.md
-        - Tello SDK: tutorials/20_tello.md
-        - PySerial: tutorials/30_pyserial.md
-
+  - Home: index.md
+  # --------------------------------------------------------
+  - Corso:
+      - Introduzione: corso/00_intro.md
+      - Prime Operazioni: corso/01_prime_operazioni.md
+      - MicroPython: corso/02_micropython.md
+      - GPIO: corso/03_GPIO.md
+      - Sensori: corso/10_sensori.md
+      - Led e ledbar: corso/11_led_ledbar.md
+      - Buttons: corso/12_buttons.md
+      - Joystick: corso/13_joystick.md
+      - Keypad: corso/14_keypad.md
+      - Analog & PWM: corso/20_analog_pwm.md
+      - RGB Led: corso/21_led_rgb.md
+      - Buzzer: corso/22_buzzer.md
+      - ADC: corso/30_ADC.md
+      - Potentiometer: corso/31_potentiometer.md
+      - Photoresistor: corso/32_photoresistor.md
+      - Display: corso/41_display.md
+      - Infrarossi: corso/42_IR.md
+      - Distance: corso/43_distance.md
+      - DHT22: corso/44_DHT22.md
+      - Networking: corso/99_network.md
+  # --------------------------------------------------------
+  - Tutorials:
+      - Introduzione: tutorials/00_intro.md
+      - Esp32 simulator: tutorials/04_simulator.md
+      - Socket Programming: tutorials/10_socket.md
+      - Tello SDK: tutorials/20_tello.md
+      - PySerial: tutorials/30_pyserial.md

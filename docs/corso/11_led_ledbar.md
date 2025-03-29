@@ -5,8 +5,8 @@ Introduciamo i componenti fondamentali con cui andremo a lavorare:
 
 ## LED
 
-Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto. 
-Tipicamente ha due poli: **il polo positivo nel pin più lungo** (catodo) e **il polo negativo nel pin più corto** (anodo). 
+Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto.
+Tipicamente ha due poli: **il polo positivo nel pin più lungo** (catodo) e **il polo negativo nel pin più corto** (anodo).
 
 ![LED](images/LED.png)
 
@@ -31,7 +31,7 @@ import machine
 import time
 
 # Il pin 5 è quello del LED programmabile
-# Ricordate?
+# Se collegate un LED fisico ad un GPIO, modificate il numero qui sotto!
 led = machine.Pin(5, machine.Pin.OUT)
 led.off()
 
@@ -39,7 +39,7 @@ while True:
     led.on()
     print("LED Acceso")
     time.sleep(1)
-    
+
     led.off()
     print("LED Spento")
     time.sleep(1)
@@ -68,7 +68,7 @@ A seconda del PIN scelto per il collegamento fisico del LED, modificate il codic
 ## LED Bar
 
 
-La barra dei LED è un semplice componente in cui sono integrati ben 8 LED (o addirittura 10!!)! 
+La barra dei LED è un semplice componente in cui sono integrati ben 8 LED (o addirittura 10!!)!
 Il collegamento fisico al microcontrollore è una semplice iterazione del circuito del LED:
 
 
@@ -91,10 +91,10 @@ while True:
         led = machine.Pin( p, machine.Pin.OUT)
         led.value( acceso )
         time.sleep_ms(500)
-    
+
     # rovescia l'ordine dei pin
     pins.reverse()
-    
+
     # inverti vero/falso
     acceso = not acceso
 ```
@@ -108,8 +108,8 @@ while True:
 
     Ognuno dei seguenti esercizi può essere svolto indifferentemente dal vivo, ovvero con ESP32 e sensori reali,
     oppure con il simulatore wokwi (ad esempio come compiti per casa)!!!
-  
-  
+
+
 
 <br>
 
@@ -141,4 +141,3 @@ A questo punto il programma termina.
 <br>
 <br>
 <br>
-
