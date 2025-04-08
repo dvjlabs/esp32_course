@@ -5,7 +5,7 @@ hide:
   - footer
 ---
 
-# MicroPython && ESP32
+<!-- # MicroPython && ESP32 -->
 
 
 <!-- ![MicroPython + ESP32](MicroPythonPlusESP32.jpg) -->
