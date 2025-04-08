@@ -1,4 +1,6 @@
 ---
+title: MicroPython && ESP32
+
 hide:
   - navigation
   - toc
