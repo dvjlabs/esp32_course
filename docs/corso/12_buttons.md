@@ -28,6 +28,45 @@ Capito che servono due collegamenti, ci sono due modi il cui il pulsante può es
 
 
 <!-- ##################################################################### -->
+## Gestione debouncing
+
+Quando si preme un pulsante fisico, il circuito si apre e si chiude decine o centinaia di volte. Questo fenomeno è chiamato *bouncing*. 
+Ciò accade a causa della natura meccanica dei pulsanti: quando i contatti metallici si uniscono, c'è un breve periodo in cui il contatto non è perfetto, 
+il che causa una serie di rapide transizioni di apertura/chiusura.
+
+
+!!! note "Il pulsante del simulatore"
+    
+    Ovviamente, il pulsante del simulatore non ha problemi di contatti *fisici*, ma è in grado di *simularli* impostando la variabile `Bounce` del pulsante:
+
+    - Se la imposti a `True`, il simulatore creerà un centinaio di segnali aperto/chiuso ad ogni pressione del pulsante
+    - Se la imposti a `False`, il simulatore creerà una singola coppia di segniali aperto/chiuso per ogni pressione.
+
+
+Il seguente codice presenta una semplice tecnica di *debouncing software*. Permette di tenere traccia delle pressioni utente di un pulsante.
+
+
+``` py title="debouncing software"
+from machine import Pin
+
+button = Pin(19, Pin.IN,Pin.PULL_UP)
+
+print("valore iniziale del pulsante: ", button.value())
+lastValue = True
+
+while True:
+    actualValue = button.value()
+    if lastValue == actualValue:
+        continue    
+    
+    if actualValue == False:
+        print("hai cliccato il pusante...")
+
+    lastValue = actualValue
+```
+
+
+<!-- ##################################################################### -->
 ## Esempi con i pulsanti
 
 (da sistemare)
