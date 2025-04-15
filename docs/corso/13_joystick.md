@@ -1,10 +1,10 @@
 # Joystick con ESP32
 
-## Componenti e collegamenti
 
 Un joystick è un dispositivo di input utilizzato per controllare la 
 posizione di un cursore o di un oggetto su uno schermo, 
-soprattutto nei contesti di videogiochi, simulatori di volo o altre applicazioni interattive. Si tratta di una leva o di un dispositivo simile che può essere spostato in diverse direzioni per controllare il movimento di un cursore o di un'entità virtuale.
+soprattutto nei contesti di videogiochi, simulatori di volo o altre applicazioni interattive. 
+Si tratta di una leva o di un dispositivo simile che può essere spostato in diverse direzioni per controllare il movimento di un cursore o di un'entità virtuale.
 
 I joystick possono avere varie forme e dimensioni, 
 ma in genere consistono in una leva che può essere inclinata o spostata 
@@ -17,31 +17,18 @@ che ci servirà per indicare la pressione o meno del joystick stesso.
 
 ![esempio di joystick](images/joystick.jpg)
 
-In figura vediamo  i collegamenti elettrici che 
-il nostro joystick richiede. 
-Nel nostro caso, invece della tensione di 5V come indicato in figura, 
-useremo una tensione di 3.3 volt (vedremo in seguito dove prelevare questa tensione).
-Quando spostiamo il joystick lungo gli assi X e Y, si va ad alterare il valore di due 
-resistenze con l'effetto di variare i valori di tensione che arriveranno a due pin del dispositivo ESP32.
-La lettura dei questi valori di tensione, opportunamente trasformati in numeri (da 0 a 4095), ci 
-serviranno per capire la posizione del joystick (da un estremo all'altro).
+In figura vediamo  i collegamenti elettrici che il nostro joystick richiede:
 
-![esempio di joystick](images/schemajoy.jpg)
+- Il collegamento al GND
+- L'alimentazione a 5V (3.3V per il nostro joystick)
+- L'asse X (valori da 0 a 4095)
+- L'asse Y (valori da 0 a 4095)
+- L'asse Z (valori da 0 a 1)
 
-I due segnali VRX e VRY sono due segnali analogici che andranno 
+I due segnali VRX e VRY (per gli assi X e Y) sono due segnali analogici che andranno 
 collegati direttamenti a due pin GPIO del componente ESP32 con 
-funzione di convertitore Analogico-Digitale.
+funzione ADC di convertitore Analogico-Digitale.
 
-La lista dei componenti necessari è indicata nella figura seguente:
-
-![schema elettrico di un joystick](images/listacomponenti.jpg)
-
-I componenti andranno collegati secondo lo schema della figura sotto. 
-Fare attenzione che nel pin del joystick in cui è indicato il valore di 5V, in realtà 
-bisogna mettere il valore di 3.3V 
-che potete trovare nel pin in alto a sinistra del componente ESP32.
-
-![schema elettrico di un joystick](images/schema1.jpg)
 
 ## Codice
 
