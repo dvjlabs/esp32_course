@@ -76,14 +76,14 @@ nav:
       - Sensori: corso/10_sensori.md
       - Led e ledbar: corso/11_led_ledbar.md
       - Buttons: corso/12_buttons.md
-      - Joystick: corso/13_joystick.md
-      - Keypad: corso/14_keypad.md
       - Analog & PWM: corso/20_analog_pwm.md
       - RGB Led: corso/21_led_rgb.md
       - Buzzer: corso/22_buzzer.md
       - ADC: corso/30_ADC.md
       - Potentiometer: corso/31_potentiometer.md
-      - Photoresistor: corso/32_photoresistor.md
+      - Joystick: corso/32_joystick.md
+      - Keypad: corso/33_keypad.md
+      - Photoresistor: corso/34_photoresistor.md
       - Display: corso/41_display.md
       - Infrarossi: corso/42_IR.md
       - Distance: corso/43_distance.md

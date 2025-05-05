@@ -30,13 +30,13 @@ Capito che servono due collegamenti, ci sono due modi il cui il pulsante può es
 <!-- ##################################################################### -->
 ## Gestione debouncing
 
-Quando si preme un pulsante fisico, il circuito si apre e si chiude decine o centinaia di volte. Questo fenomeno è chiamato *bouncing*. 
-Ciò accade a causa della natura meccanica dei pulsanti: quando i contatti metallici si uniscono, c'è un breve periodo in cui il contatto non è perfetto, 
+Quando si preme un pulsante fisico, il circuito si apre e si chiude decine o centinaia di volte. Questo fenomeno è chiamato *bouncing*.
+Ciò accade a causa della natura meccanica dei pulsanti: quando i contatti metallici si uniscono, c'è un breve periodo in cui il contatto non è perfetto,
 il che causa una serie di rapide transizioni di apertura/chiusura.
 
 
 !!! note "Il pulsante del simulatore"
-    
+
     Ovviamente, il pulsante del simulatore non ha problemi di contatti *fisici*, ma è in grado di *simularli* impostando la variabile `Bounce` del pulsante:
 
     - Se la imposti a `True`, il simulatore creerà un centinaio di segnali aperto/chiuso ad ogni pressione del pulsante
@@ -49,6 +49,8 @@ Il seguente codice presenta una semplice tecnica di *debouncing software*. Perme
 ``` py title="debouncing software"
 from machine import Pin
 
+# immaginiamo di gestire un pulsante collegato al pin 19 e al GND
+# impostato in modalità PULL_UP
 button = Pin(19, Pin.IN,Pin.PULL_UP)
 
 print("valore iniziale del pulsante: ", button.value())
@@ -57,8 +59,8 @@ lastValue = True
 while True:
     actualValue = button.value()
     if lastValue == actualValue:
-        continue    
-    
+        continue
+
     if actualValue == False:
         print("hai cliccato il pusante...")
 
@@ -69,15 +71,15 @@ while True:
 <!-- ##################################################################### -->
 ## Esempi con i pulsanti
 
-(da sistemare)
 
-Nel secondo progetto abbiamo un pulsante collegato ad un LED nel nostro circuito. Incredibilmente...
+In questo progetto di prova abbiamo un pulsante collegato ad un LED nel nostro circuito. Incredibilmente...
 quando si clicca il pulsante dovrebbe accendersi la luce!!!
 
+Per ottenere questo effetto vogliamo collegare il pulsante in modalità PULL_DOWN e reagire quando questo viene premuto.
 Vediamo lo schema elettrico del progetto:
 
 
-![Schema LED Button](https://esp32io.com/images/tutorial/esp32-button-led-wiring-diagram.jpg)
+![Schema LED Button](images/esp32-button-led-wiring-diagram.webp)
 
 
 Quello che manca è il codice di funzionamento. Eccolo:
@@ -85,16 +87,15 @@ Quello che manca è il codice di funzionamento. Eccolo:
 ``` python
 from machine import Pin
 
-# xx è il numero del GPIO a cui hai collegato il led
-# yy è il numero del GPIO a cui hai collegato il pulsante
-led = Pin(xx, Pin.OUT)
-button = Pin(yy, Pin.IN,Pin.PULL_UP)
+
+led = Pin(16, Pin.OUT)
+button = Pin(25, Pin.IN,Pin.PULL_UP)
 
 while True:
-    if not button.value():
-        led.off()
-    else:
+    if button.value():
         led.on()
+    else:
+        led.off()
 ```
 
 
@@ -105,9 +106,8 @@ while True:
 
 **Button LED...Bar**
 
-Pulsante e barra dei led.
-
-Quando si clicca il pulsante, parte il caricamento della barra, che poi si scaricherà quando è tutta piena.
+Progetto contenente un pulsante e una barra dei led. Quando si clicca il pulsante, parte il caricamento della barra,
+che poi si scaricherà quando è tutta piena.
 
 Difficoltà ulteriore: quando si clicca di nuovo il pulsante il caricamento si interrompe.
 
