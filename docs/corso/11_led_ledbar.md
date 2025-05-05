@@ -1,10 +1,6 @@
 # Led(s)
 
 
-Introduciamo i componenti fondamentali con cui andremo a lavorare:
-
-## LED
-
 Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto.
 Tipicamente ha due poli: **il polo positivo nel pin più lungo** (catodo) e **il polo negativo nel pin più corto** (anodo).
 
@@ -57,7 +53,7 @@ Non c'è molto altro da aggiungere :smile:
 In questo progetto dobbiamo costruire un circuito per collegare un led all'ESP32. Il circuito dovrà realizzare uno schema tipo il seguente:
 
 
-![LED Schema](projects/LED_schema.png)
+![LED Schema](images/LED_schema.webp)
 
 
 A seconda del PIN scelto per il collegamento fisico del LED, modificate il codice dell'esempio precedente per far accendere il led che avete appena collegato.
@@ -68,11 +64,11 @@ A seconda del PIN scelto per il collegamento fisico del LED, modificate il codic
 ## LED Bar
 
 
-La barra dei LED è un semplice componente in cui sono integrati ben 8 LED (o addirittura 10!!)!
+La barra dei LED è un semplice componente in cui sono integrati ben 10 LED!!!
 Il collegamento fisico al microcontrollore è una semplice iterazione del circuito del LED:
 
 
-![LEDBAR Schema](projects/LEDBar_schema.png)
+![LEDBAR Schema](images/LEDBAR_schema.webp)
 
 
 Adesso tramite codice andiamo a fornire un comportamento al nostro progetto: Facciamo in modo che ogni secondo la barra si riempa
@@ -82,8 +78,8 @@ sempre più e poi inizi a svuotarsi. Ecco il codice:
 import machine
 import time
 
-# Gli 8 pin, in ordine come connessi alla ledbar
-pins=[a,b,c,d,e,f,g,h,i]
+# I 10 pin, in ordine di connessione alla ledbar
+pins=[22,21,19,23,18,17,16,4,2,15]
 
 acceso = True
 while True:
