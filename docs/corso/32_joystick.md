@@ -45,17 +45,21 @@ Il codice è sotto riportato.
 from machine import ADC,Pin
 import time
 
-xVal=ADC(Pin(14)) #ADC sta per Analog-Conversion Converter
-yVal=ADC(Pin(13))
-zVal=Pin(12,Pin.IN,Pin.PULL_UP) #
+xJoy = ADC(Pin(14)) # ADC sta per Analog-Conversion Converter
+yJoy = ADC(Pin(13))
+zJoy = Pin(12,Pin.IN,Pin.PULL_UP) # secondo l'asse Z, il joystick è come un pulsante
 
-xVal.atten(ADC.ATTN_11DB)
-yVal.atten(ADC.ATTN_11DB)
-xVal.width(ADC.WIDTH_12BIT)
-yVal.width(ADC.WIDTH_12BIT)
+# impostano la dimensione di X,Y fra 0 e 4095
+xJoy.atten(ADC.ATTN_11DB)
+yJoy.atten(ADC.ATTN_11DB)
+xJoy.width(ADC.WIDTH_12BIT)
+yJoy.width(ADC.WIDTH_12BIT)
 
 while True:
-  print("X,Y,Z:",xVal.read(),",",yVal.read(),",",zVal.value())
+  x = xJoy.read()
+  y = yJoy.read()
+  z = zJoy.value()
+  print("X,Y,Z:" , x , "," , y , "," , z )
   time.sleep(1)
 
 ```
