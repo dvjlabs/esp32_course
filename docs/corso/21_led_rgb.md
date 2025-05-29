@@ -62,16 +62,16 @@ Infine testiamo il seguente codice:
 
 
 ``` py
-import machine
+from machine import Pin,PWM
 import random
 import time
 
-pinR = machine.Pin(19, machine.Pin.OUT)
-pinG = machine.Pin(2, machine.Pin.OUT)
-pinB = machine.Pin(15, machine.Pin.OUT)
-pwmR = machine.PWM(pinR,10000)
-pwmG = machine.PWM(pinG,10000)
-pwmB = machine.PWM(pinB,10000)
+pinR = Pin(19, Pin.OUT)
+pinG = Pin(2,  Pin.OUT)
+pinB = Pin(15, Pin.OUT)
+pwmR = PWM(pinR,10000)
+pwmG = PWM(pinG,10000)
+pwmB = PWM(pinB,10000)
 
 colors = {"red":(1023,0,0), "green":(0,1023,0), "blue":(0,0,1023),"white":(1023,1023,1023) }
 

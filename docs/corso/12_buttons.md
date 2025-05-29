@@ -47,24 +47,26 @@ Il seguente codice presenta una semplice tecnica di *debouncing software*. Perme
 
 
 ``` py title="debouncing software"
+# Se sei nel simulatore, imposta a OFF il Debounce del pulsante
 from machine import Pin
 
 # immaginiamo di gestire un pulsante collegato al pin 19 e al GND
 # impostato in modalità PULL_UP
 button = Pin(19, Pin.IN,Pin.PULL_UP)
 
-print("valore iniziale del pulsante: ", button.value())
-lastValue = True
+buttonValue = button.value()
+print("valore iniziale del pulsante: ", buttonValue)
+
 
 while True:
     actualValue = button.value()
-    if lastValue == actualValue:
+    if buttonValue == actualValue:
         continue
 
     if actualValue == False:
-        print("hai cliccato il pusante...")
+        print("hai cliccato il pulsante...")
 
-    lastValue = actualValue
+    buttonValue = actualValue
 ```
 
 

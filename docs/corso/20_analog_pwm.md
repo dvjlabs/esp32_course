@@ -41,11 +41,11 @@ L’implementazione di PWM dell'ESP32 ha 8 canali separati, ognuno dei quali pu�
 Per comprenderne il funzionamento, facciamo un esempio con il led programmabile (GPIO 5):
 
 ``` py
-import machine
+from machine import Pin,PWM
 import time
 
 # il led da gestire
-ledPin = machine.Pin(5, machine.Pin.OUT)
+ledPin = Pin(5, Pin.OUT)
 
 # tempo di attesa in millisecondi
 # varia questo numero per aumentare/diminuire la velocità di illuminazione del led
@@ -55,7 +55,7 @@ ms_time = 100
 # richiede:
 # - l'oggetto fisico su cui applicare il PWM (nel nostro caso, il led)
 # - la frequenza in ms del pwm
-pwm = machine.PWM( ledPin, 10000)
+pwm = PWM( ledPin, 10000)
 
 while True:
 
