@@ -73,7 +73,8 @@ nav:
       - Prime Operazioni: corso/01_prime_operazioni.md
       - MicroPython: corso/02_micropython.md
       - GPIO: corso/03_GPIO.md
-      - Sensori: corso/10_sensori.md
+      - Elementi di Circuiti: corso/10_sensori.md
+      - V=R*I (Tensione, Corrente e Circuito Elettrico): corso/09_corrente_tensione_circuito.md
       - Led e ledbar: corso/11_led_ledbar.md
       - Buttons: corso/12_buttons.md
       - Analog & PWM: corso/20_analog_pwm.md
