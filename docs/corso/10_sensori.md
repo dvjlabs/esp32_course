@@ -8,17 +8,27 @@ Introduciamoli!
 
 ## BreadBoard
 
-Una **breadboard** è una basetta di prototipazione per realizzare esperimenti e prototipi senza il bisogno di eseguire saldature: permette di collegare componenti elettronici e fili inserendoli *a pressione* nella basetta per montare, testare e modificare circuiti in pochi secondi. È perfetta per attività didattiche, perché gli studenti possono sperimentare senza rischiare di rovinare i componenti. E senza rischiare di bruciarsi le dita usando il saldatore a stagno necessario per saldare i "fili". Nella foto seguente si vede una classica basetta breadboard.
+Una **breadboard** è una basetta di prototipazione per realizzare esperimenti e prototipi senza il bisogno di eseguire saldature: permette di collegare componenti elettronici e fili inserendoli *a pressione* nella basetta per montare, testare e modificare circuiti in pochi secondi. È perfetta per attività didattiche, perché gli studenti possono sperimentare senza rischiare di rovinare i componenti. E senza rischiare di bruciarsi le dita usando il saldatore a stagno necessario per saldare i *fili*. Nella foto seguente si vede una classica basetta *breadboard* con una resistenza e un led inseriti nella basetta.
 
-![BreadBoard](images/breadboard.jpg)
+![BreadBoard](images/breadboardLed.jpg)
 
-Nel dubbio, riassumo quanto bisognerebbe dedurre al volo:
+---
 
-- la breadboard è *spaccata* in due a metà: la parte sopra NON comunica con la parte sotto
-- le *colonne* evidenziate in verde hanno ognuna tutti i fori collegati fra loro: tipicamente servono per i collegamenti elettrici
-- le *righe* rosse e blu sono anch'esse ognuna tutte collegate fra loro: tipicamente servono per l'alimentazione dei circuiti
+## Come è fatta e come funziona  
+La figura seguente ci aiuta a capire come è fatta una breadboard. Questa parte del documento lo dovete **ASSOLUTAMENTE CAPIRE BENE** per evitare di bruciare 🔥 il vostro circuito
+ (e quindi anche i componenti che vi fornisce la scuola 🤬). 
+
+  ![BreadBoard](images/breadboard.jpg)  
 
 
+- **Blocchi centrali (matrice):** quelli con le linee verdi. Ci sono due sezioni di fori separate da una fessura. Come indicato dall'immagine i fori segnati con la linea verde sono collegati fra di loro. 
+> ATTENZIONE: i fori della parte superiore non sono collegati con i fori della parte inferiore anche se appartengono alla stessa colonna.
+
+- **Binari di alimentazione (rail):** due coppie di linee laterali contrassegnate (+ rosso, – blu/nero) che corrono **in orizzontale** lungo la breadboard. Queste linee sono utilizzate per mettere le alimentazioni (ad. esempio 5V o 3,3V) e il segnale di massa o ground (anche indicato come GND). Capirete qualcosa in più quando daremo concetti elementari di circuiti elettrici. Per evitare problemi usate la convenzione di mettere le alimentazioni sulle linee rosse e il ground sulla linea nera/blu.
+
+>ATTENZIONE: tutti i fori indicati in rosso sono collegati tra loro, così come tutti i fori indicato in blu. Ma la parte superiore non è collegata con la parte inferiore.
+
+La stessa figura vi fa vedere (nella parte a destra) come effettivamente sono eseguiti i collegamenti tramite contatti metallici che, come ovviamente sapete, sono materiali conduttivi.  
 
 ## Resistenze
 
