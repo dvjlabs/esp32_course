@@ -4,13 +4,11 @@
 In questo capitolo andremo semplicemente a definire gli oggetti di base tramite i quali costruire i nostri progetti hardware, 
 governati da un ESP32 e controllati tramite codice MicroPython.
 
-Introduciamoli:
-
+Introduciamoli!
 
 ## BreadBoard
 
-Una BreadBoard è un componente fisico utilizzato per i circuiti di test e per la didattica. Ha una struttura molto semplice, comprensibile al volo
-semplicemente osservando l'immagine seguente:
+Una **breadboard** è una basetta di prototipazione per realizzare esperimenti e prototipi senza il bisogno di eseguire saldature: permette di collegare componenti elettronici e fili inserendoli *a pressione* nella basetta per montare, testare e modificare circuiti in pochi secondi. È perfetta per attività didattiche, perché gli studenti possono sperimentare senza rischiare di rovinare i componenti. E senza rischiare di bruciarsi le dita usando il saldatore a stagno necessario per saldare i "fili". Nella foto seguente si vede una classica basetta breadboard.
 
 ![BreadBoard](images/breadboard.jpg)
 
