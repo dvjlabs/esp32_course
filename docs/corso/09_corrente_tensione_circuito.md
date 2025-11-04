@@ -1,8 +1,11 @@
 # Corrente, Tensione e Circuito Elettrico
 
 Immagina l’elettricità come un “traffico” di minuscole particelle cariche, gli elettroni, che possono muoversi dentro certi materiali. Quando questo movimento è organizzato e continuo parliamo di **corrente elettrica**: è quanta carica passa in un punto del circuito nell’unità di tempo. L’unità di misura è l’**ampere (A)** e corrisponde a un **coulomb al secondo**. Non è diverso dall’idea di una portata d’acqua in un tubo: più elettroni scorrono in un secondo, maggiore è la corrente.
-
+![elettroni](images/correnteedelettroni.png)  
 Per far muovere quelle cariche serve una spinta. Quella spinta si chiama **tensione** o **differenza di potenziale** ed è l’energia disponibile per ogni unità di carica affinché compia un percorso. Si misura in **volt (V)** e puoi pensarla come la **pressione** che mette in moto l’acqua. Se la tensione è alta, gli elettroni hanno più energia per attraversare un componente; se è bassa, la spinta è modesta. In termini fisici, **1 V = 1 J/C**: un volt è un joule di energia per coulomb di carica.
+![circuito](images/circuitosemplice.png) 
+Analogia con il flusso di acqua in un tubo.
+![circuito](images/acquaepressione.png) 
 
 Tra la spinta e il flusso c’è di mezzo la “strada” che le cariche devono percorrere. I materiali non sono tutti uguali: alcuni lasciano passare gli elettroni con facilità (conduttori), altri oppongono resistenza (isolanti o, più spesso, resistenze controllate). La relazione più celebre che lega questi elementi è la **legge di Ohm**: `V = I · R`. A parità di tensione, una resistenza grande lascia passare poca corrente; a parità di resistenza, più volt significano più ampere. Da qui discende anche la **potenza elettrica**, `P = V · I`: è il ritmo con cui l’energia viene trasformata, ad esempio in luce o calore.
 
