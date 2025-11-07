@@ -18,80 +18,39 @@ I buzzer sono di due tipi:
 
 I buzzer attivi sono semplicissimi da usare, ma tipicamente sono in grado di fare solo uno specifico suono. I buzzer passivi necessitano di un intero circuito per funzionare, ma di contro possono essere regolati per emettere suoni a frequenze differenti.
 
-Se tutto fosse così facile... staremmo già cominciando a divertirci con i progetti di oggi...ma purtroppo c’è un altro problema da risolvere: 
-i buzzer per fnuzionare necessitano di una quantità di corrente decisamente superiore a quella erogata dai nostri dispositivi!
-
-Per risolvere questa ulteriore problematica, dobbiamo utilizzare un **transistor**.
+Tipicamente il collegamento all'ESP32 di un buzzer è il seguente:
 
 
-![transistor](images/transistors.png)
-
-
-Un transistor è un dispositivo elettronico in grado di funzionare da interruttore o da amplificatore. 
-Come si intuisce dalle figure, un transistor è un oggetto elettronico con tre collegamenti verso l’esterno:
-
-1. **Base** (B): da dove solitamente arrivano i segnali di comando
-2. **Emettitore** (E): da dove solitamente escono i segnali elaborati dal transistor
-3. **Collettore** (C): da dove solitamente arriva la corrente
-
-Neanche a dirlo, nel nostro kit sono disponibili ben due tipologie di transistor:
-
-- **transistor NPN, o transistor negativo**
-- **transistor PNP, o transistor positivo**
-
-La differenza fondamentale fra i due tipi sta nel fatto che nel transistor NPN la corrente positiva va collegata al collettore C, 
-ottenendo in uscita una corrente negativa, mentre nel transistor PNP la corrente positiva va collegata all’emettitore E, 
-ottenendo in uscita una corrente positiva.
-
-Vabbè... speriamo di capire meglio le cose lavorando ai progetti...
+![Collegamento buzzer - ESP32](images/piezo_buzzer.png)
 
 <!-- ################################################################################# -->
-## Buzzer: campanello
+## Buzzer attivo
 
-Il campanello è un progetto concettualmente semplice: quando tieni cliccato un pulsante, il campanello suona, quando lo lasci smette.
-
-Poiché non abbiamo bisogno di variare toni e intensità del suono utilizzeremo un buzzer attivo, collegato ad un transistor NPN! 
-Ecco l’elenco dei componenti:
-
-
-![Lista dei componenti](projects/buzzer_material.png)
-
-
-Per quanto riguarda il circuito da implementare, ecco una immagine che lo descrive:
-
-
-![Campanello, materiale](projects/buzzer_schema.png)
-
-
-Selezionati i pin a cui collegare il buzzer e il pulsante, ecco il codice per l'implementazione del campanello:
+Un buzzer attivo va semplicemente collegato come in figura e fatto suonare secondo il seguente
+codice:
 
 
 ```python
 from machine import Pin
+import time
 
-button = Pin(xxx,Pin.IN,Pin.PULL_UP)
-activeBuzzer = Pin(yyy,Pin.OUT)
+buzzer = Pin(33,Pin.OUT)
 
-activeBuzzer.value(0)
+buzzer.off()
 
 while True:
-    if not button.value():
-        activeBuzzer.value(1)
-    else:
-        activeBuzzer.value(0)
+    buzzer.on()
+    time.sleep(1)
+    buzzer.off()
+    time.sleep(1)
 ```
 
 
 <!-- ################################################################################# -->
-## Buzzer: allarme
+## Buzzer passivo
 
-Un allarme funziona in maniera analoga al progetto del campanello, ma ha il tipico suono ondulato che varia dall’acuto al grave in maniera continua. 
-Per ottenere ciò, **dovremo sostituire il buzzer attivo con uno passivo e implementare un PWM**.
-
-
-Il progetto è uguale al precedente, quello che cambia è semplicemente il tipo di buzzer, il fatto che il pin di collegamento dovrà
-per forsa supportare il PWN e il codice:
-
+Il collegamento elettrico del buzzer passivo è concettualmente identico a quello attivo, ma va scelto un Pin di
+collegamento che supporti il PWM, che va gestito a livello di codice.
 
 ```python
 from machine import Pin,PWM
@@ -100,34 +59,45 @@ import time
 
 PI = 3.14
 
-button = Pin(xxx,Pin.IN,Pin.PULL_UP)
-
-pinB = Pin(yyy,Pin.OUT)
+pinB = Pin(33,Pin.OUT)
 passiveBuzzer = PWM( pinB, 2000)
 
-def alert():
+        
+passiveBuzzer.init()
 
-        
-while True:
-    if not button.value():
-        passiveBuzzer.init()
-        
-        for x in range(0,36):
-            sinVal = math.sin(x*10*PI/180)
-            toneVal = 2000 + int(sinVal*500)
-            passiveBuzzer.freq(toneVal)
-            time.sleep_ms(10)   
-    else:
-        passiveBuzzer.deinit()
+for x in range(0,36):
+    sinVal = math.sin(x*10*PI/180)
+    toneVal = 2000 + int(sinVal*500)
+    passiveBuzzer.freq(toneVal)
+    time.sleep_ms(10)   
 
 passiveBuzzer.deinit()
 ```
 
-
+Tutto qua! Adesso, sotto con i progetti!!!
 
 
 <!-- ################################################################################# -->
 ## Esercizi
+
+Ecco alcuni degli esercizi sui buzzer e sui sensori che abbiamo già studiato. Provate a fare i primi e
+ad *arricchirli* come credete!
+
+Buon divertimento!!!
+
+---
+
+**Campanello**
+
+Implementare un progetto con un buzzer (attivo) e un pulsante. Quando si tiene cliccato il pulsante suona l'allarme, che ha il tipico suono ondulato che varia dall’acuto al grave in maniera continua.
+
+---
+
+**Allarme**
+
+Come il precedente ma stavolta con un buzzer passivo. Implementare un progetto con un buzzer e un pulsante (come il precedente). Quando si tiene cliccato il pulsante suona il buzzer!
+
+---
 
 
 **Sirena**
