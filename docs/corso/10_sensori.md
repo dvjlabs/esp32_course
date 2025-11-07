@@ -56,6 +56,28 @@ dipende dalla quantità di corrente che passa e dalla sua... *resistenza*.
     
 
 
+## Transistor
+
+Un transistor è un dispositivo elettronico in grado di funzionare da interruttore o da amplificatore. 
+Come si intuisce dalle figure sotto, un transistor è un oggetto elettronico con tre collegamenti verso l’esterno:
+
+1. **Base** (B): da dove solitamente arrivano i segnali di comando
+2. **Emettitore** (E): da dove solitamente escono i segnali elaborati dal transistor
+3. **Collettore** (C): da dove solitamente arriva la corrente
+
+
+![transistor](images/transistors.png)
+
+
+Neanche a dirlo, nel nostro kit sono disponibili ben due tipologie di transistor:
+
+- **transistor NPN, o transistor negativo**
+- **transistor PNP, o transistor positivo**
+
+La differenza fondamentale fra i due tipi sta nel fatto che nel transistor NPN la corrente positiva va collegata al collettore C, ottenendo in uscita una corrente negativa, mentre nel transistor PNP la corrente positiva va collegata all’emettitore E, ottenendo in uscita una corrente positiva.
+
+Quando serviranno in alcuni dei progetti che faremo... ci ritorneremo!
+
 
 
 <br>
