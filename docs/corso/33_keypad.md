@@ -3,6 +3,7 @@
 
 Blah blah...
 
+![Keypad](images/keypad.png)
 
 
 <br>
