@@ -89,6 +89,7 @@ nav:
       - Infrarossi: corso/42_IR.md
       - Distance: corso/43_distance.md
       - DHT22: corso/44_DHT22.md
+      - Motion: corso/45_motion.md
       - Networking: corso/99_network.md
   # --------------------------------------------------------
   - Tutorials:

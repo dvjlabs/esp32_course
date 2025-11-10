@@ -1,7 +1,16 @@
 # Keypad
 
 
-Blah blah...
+Una keypad non è altro che una pulsantiera in cui dovete imparare a gestire i tasti con il gioco della battaglia
+navale!!!
+
+![Keypad Matrix](images/keypad_matrix.png)
+
+
+Sostanzialmente abbiamo 16 tasti in cui ognuno viene individuato da una coppia di pin, come nel gioco battaglia navale :smile:
+
+la gestione di una keypad è un lungo problema semplice. Vi lascio un codice funzionante, una volta stabiliti i 
+pin di collegamento della stessa.
 
 ![Keypad](images/keypad.png)
 
@@ -140,6 +149,7 @@ while True:
         print('Your input:',keyvalue)
         time.sleep_ms(200)
 ```
+
 
 <br>
 <br>
