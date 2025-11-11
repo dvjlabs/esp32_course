@@ -14,14 +14,11 @@ comprese fra 2 e 200 cm.
 from machine import Pin
 import time
 
-trigPin=Pin(13,Pin.OUT,0)
-echoPin=Pin(14,Pin.IN,0)
+trigPin=Pin(33,Pin.OUT,0)
+echoPin=Pin(32,Pin.IN,0)
 
-soundVelocity=340
-distance=0
-
-def getSonar():
-    
+soundVelocity = 340
+distance = 0
 
 # aspetta due secondi che il sensore si attivi...
 time.sleep_ms(2000)
