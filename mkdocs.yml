@@ -73,6 +73,7 @@ nav:
       - Prime Operazioni: corso/01_prime_operazioni.md
       - MicroPython: corso/02_micropython.md
       - GPIO: corso/03_GPIO.md
+      - Il multimetro: corso/08_il multimetro.md
       - Elementi di Circuiti: corso/10_sensori.md
       - Corrente e Tensione in un Circuito Elettrico: corso/09_corrente_tensione_circuito.md
       - Led e ledbar: corso/11_led_ledbar.md
