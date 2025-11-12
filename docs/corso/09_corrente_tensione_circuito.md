@@ -4,7 +4,7 @@ Immagina l’elettricità come un “traffico” di minuscole particelle cariche
 L’unità di misura è l’**ampere (A)** e corrisponde a un **coulomb al secondo**.  
   ### Relazione tra corrente e carica
 
-La corrente elettrica \( I \) è definita come la variazione della carica \( Q \) nel tempo:
+La corrente elettrica \( I \) è definita come la variazione della carica \( Q \) nel tempo:  
 
 $$
 I = \frac{dQ}{dt}
@@ -46,4 +46,3 @@ Si esegua il circuito come indicato in figura:
 
   > ripetere la stessa misura con R=1kohm e R=10kohm.  
   Controllare sempre con la formula V=R*I.  
-  
