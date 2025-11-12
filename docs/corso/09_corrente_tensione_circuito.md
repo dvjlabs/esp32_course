@@ -5,10 +5,9 @@ L’unità di misura è l’**ampere (A)** e corrisponde a un **coulomb al secon
   ### Relazione tra corrente e carica
 
 La corrente elettrica \( I \) è definita come la variazione della carica \( Q \) nel tempo:  
+![corr](images/i_varQ.jpg)    
 
-$$
-I = \frac{dQ}{dt}
-$$
+
 ![elettroni](images/correnteconduttore.png)    
 
 
