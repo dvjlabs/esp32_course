@@ -29,3 +29,21 @@ Nella pratica quotidiana incontriamo due modi diversi di “erogare” la tensio
 Capire corrente e tensione come flusso e spinta, e il circuito come anello chiuso che permette all’energia di compiere un “lavoro”, rende naturale anche il modo in cui misuriamo e colleghiamo gli strumenti. L’**amperometro** si mette *in serie* perché deve “sentire” quanta carica passa lì dentro; il **voltmetro** si mette *in parallelo* perché confronta l’energia per carica tra due punti. E quando i componenti si collegano, valgono due regole intuitive: ciò che entra in un nodo deve uscire (conservazione della carica), e lungo un giro completo la somma delle salite e discese di tensione si bilancia (l’energia “guadagnata” dalla sorgente è “spesa” nei carichi).
 
 In fondo, tutta l’elettronica — dai LED accesi in laboratorio fino ai computer — è un gioco di pressioni e flussi organizzati in percorsi chiusi. La tensione decide quanta energia è a disposizione, la corrente racconta quanto “traffico” c’è, la resistenza stabilisce quanto è agevole la strada, e il circuito è la mappa che fa funzionare tutto in armonia.
+
+# Esperimenti  
+
+## 1 - Output su un GPIO  
+Si scriva un programma in modo da alternare uno zero (LOW) e un uno (HIGH) su un pin GPIO (ad esempio GPIO4). Si metta una pausa di almento un paio di secondi tra una alternanza e l'altra. Si verifichi quindi con il multimetro, messo in modalità di lettura della tensione continua, che il valore letto dallo strumento sia 0.0 e 3.3Volt a seconda di quello che scrivere su GPIO4.  
+I due puntali (rosso e nero) devo essere collegati sul pin di massa (GND) e GPIO4 del ESP32.  
+![esperimento 1](images/uso_multimetro_V.jpg)  
+In figura con il simbolo V si intende il multimentro messo in modalità voltometro.
+## 2 - collegamento di una resistenza  
+Si esegua il circuito come indicato in figura:  
+  ![esperimento 1](images/uso_multimetro_A.jpg)  
+  Ora il multimetro è usato in modalità Amperometro (lettura di corrente che scorre nel conduttore). 
+  Con lo stesso programma di prima dovresto vedere corrente 0 ampere (A) quando sul pin GPIO4 pilotate uno 0, e un valore con GPIO4 a 1.
+  Con la resistenza da 220ohm, verificate che la corrente letta dallo strumento sia uguale a quella ricavata dalla formula.
+
+  > ripetere la stessa misura con R=1kohm e R=10kohm.  
+  Controllare sempre con la formula V=R*I.  
+  
