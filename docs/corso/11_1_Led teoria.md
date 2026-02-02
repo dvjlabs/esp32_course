@@ -73,7 +73,7 @@ Caratteristiche principali:
 - forma una struttura cristallina molto stabile
 - a temperatura ambiente ha pochi elettroni liberi
 
-![silicio](images/silicio.jpg)
+![silicio](images/silicio.jpg)  
 
 Nel silicio puro:
 - la **banda di valenza** è quasi completamente occupata
