@@ -77,6 +77,7 @@ nav:
       - Elementi di Circuiti: corso/10_sensori.md
       - Corrente e Tensione in un Circuito Elettrico: corso/09_corrente_tensione_circuito.md
       - Led e ledbar: corso/11_led_ledbar.md
+      - Led teoria e esercizi: corso/11_1_Led teoria.md
       - Buttons: corso/12_buttons.md
       - Analog & PWM: corso/20_analog_pwm.md
       - RGB Led: corso/21_led_rgb.md
