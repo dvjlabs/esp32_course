@@ -161,11 +161,9 @@ Ora analizzeremo il comportamento della giunzione p-n a circuito chiuso, ossia i
 
 ### Perché è importante  
 La giunzione PN può funzionare come un interruttore:  
-
 - applicando ai suoi capi una tensione opportuna, la corrente circola e il circuito è chiuso;  
 - togliendo questa tensione, la giunzione PN funziona come un interruttore aperto, quindi la corrente non circola.  
-
-### 1.3 Il LED
+### 1.3 Il LED  
 Il LED è un tipo particolare di giunzione PN in cui la corrente che attraversa la giunzione produce **luce** grazie alla ricombinazione di elettroni e lacune.  
 
 ### 1.1 Cos’è un LED
