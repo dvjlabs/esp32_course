@@ -160,7 +160,8 @@ Ora analizzeremo il comportamento della giunzione p-n a circuito chiuso, ossia i
   Nella polarizzazione inversa, applicando una tensione opposta, la barriera aumenta e la corrente non passa.  
 
 ### Perché è importante  
-La giunzione PN può funzionare come un interruttore: 
+La giunzione PN può funzionare come un interruttore:  
+
 - applicando ai suoi capi una tensione opportuna, la corrente circola e il circuito è chiuso;  
 - togliendo questa tensione, la giunzione PN funziona come un interruttore aperto, quindi la corrente non circola.  
 
