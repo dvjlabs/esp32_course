@@ -86,10 +86,11 @@ Nel semiconduttore la corrente è quindi dovuta a:
 - **lacune** nella banda di valenza  
 
 ## Perché il silicio è così importante
-Il silicio è ideale perché:
+Il silicio è ideale perché:  
 
 - può essere facilmente **drogato** per controllarne la conducibilità  
 - è abbondante e stabile in natura  
+    
 
 Queste proprietà rendono il silicio come l'elemento principale nella realizzazione di dispositivi largamente utilizzati in elettronica come:
 - diodi  
