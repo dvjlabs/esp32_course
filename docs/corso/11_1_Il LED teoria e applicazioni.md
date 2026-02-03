@@ -165,49 +165,40 @@ La giunzione PN può funzionare come un interruttore:
 - togliendo questa tensione, la giunzione PN funziona come un interruttore aperto, quindi la corrente non circola.  
 ### 1.3 Il LED  
 Il LED è un tipo particolare di giunzione PN in cui la corrente che attraversa la giunzione produce **luce** grazie alla ricombinazione di elettroni e lacune.  
-
-### 1.1 Cos’è un LED
-Il LED (Light Emitting Diode) è un **diodo a emissione luminosa**, cioè un componente elettronico semiconduttore che:
+Il LED (Light Emitting Diode) è detto anche **diodo a emissione luminosa**, cioè un componente elettronico semiconduttore che:
 - lascia passare la corrente in **un solo verso**
 - emette **luce** quando viene attraversato da corrente elettrica
 
-### 1.2 Perchè emette luce    
-Il principio di funzionamento è sempre lo stesso del diodo (giunzione PN): riduzione della barriera di potenziale e passaggio di corrente.
-
-**La differenza sta in come viene rilasciata l’energia.**  
+### Perchè emette luce    
+Il principio di funzionamento è sempre lo stesso del diodo (giunzione PN): riduzione della barriera di potenziale e passaggio di corrente. **La differenza sta in come viene rilasciata l’energia.** nel momento in cui un elettrone passa da un livello energetico all'altro durante il suo movimento nel reticolo cristallino.   
 
 Quando il LED è polarizzato direttamente:  
 - gli elettroni del lato N attraversano la giunzione
 - le lacune del lato P attraversano la giunzione
 - avviene la ricombinazione elettrone–lacuna  
-
+  
 e fin qui il comportamento è quello di un diodo normale.  
 
 Durante la ricombinazione l’elettrone passa da un livello energetico più alto (banda di conduzione) a uno più basso (banda di valenza).  
-La differenza di energia non viene dissipata come calore ma viene emessa sotto forma di fotone (luce).
+La differenza di energia non viene dissipata come calore ma viene emessa sotto forma di fotone (luce).  
 
-**Questa emissione si chiama elettroluminescenza.**
-
-
+**Questa emissione si chiama elettroluminescenza.**  
 Il **colore della luce** emessa dipende dal materiale semiconduttore e dal suo **gap energetico**.
 
----
-### 1.3 Polarizzazione del LED
-Il LED ha due terminali:
-- **Anodo (+)** → gamba più lunga
-- **Catodo (−)** → gamba più corta
+### Polarizzazione del LED  
+Il LED ha due terminali:  
+- **Anodo (+)** → gamba più lunga  
+- **Catodo (−)** → gamba più corta  
 
-Per funzionare correttamente:
-- l’anodo deve essere collegato al positivo
-- il catodo al negativo (GND)
+Per funzionare correttamente:  
+- l’anodo deve essere collegato al positivo  
+- il catodo al negativo (GND)  
 
-Se collegato al contrario:
-- il LED non conduce
-- il LED non si accende
-
----
-
-### 1.4 Tensione diretta e corrente
+Se collegato al contrario:  
+- il LED non conduce  
+- il LED non si accende  
+  
+### Tensione diretta e corrente
 Il LED **non deve essere collegato direttamente a una sorgente di tensione**.
 
 Valori tipici della tensione e corrente da fornire ai capi di un LED:
@@ -220,38 +211,29 @@ Valori tipici della tensione e corrente da fornire ai capi di un LED:
 
 Il LED non è una resistenza per cui se viene collegato direttamente a una tensione esterna, il valore di corrente che vi passerebbe è sicuramente molto maggiore di quella propria di funzionamento e si danneggerebbe. (in base alle legge di ohm V=R*I).  
 
+### Resistenza di limitazione
+Per proteggere il LED si utilizza una **resistenza in serie**.  
+Formula di calcolo: R = (V_alimentazione − V_LED) / I_LED  
 
-### 1.5 Resistenza di limitazione
-Per proteggere il LED si utilizza una **resistenza in serie**.
+Esempio:  
+- ESP32: 3.3 V  
+- LED rosso: 2.0 V  
+- Corrente: 10 mA  
+  
+R = (3.3 − 2.0) / 0.01 = 130 Ω  
+Valori commerciali consigliati:  
+- 150 Ω  
+- 220 Ω  
 
-Formula di calcolo: R = (V_alimentazione − V_LED) / I_LED
+## 2. Parte pratica – LED con ESP32 e MicroPython  
 
+### 2.1 Obiettivi della parte pratica  
+- Collegare correttamente un LED a un ESP32  
+- Usare un GPIO come uscita digitale  
+- Controllare il LED tramite software  
+- Comprendere il legame tra codice e hardware  
 
-
-Esempio:
-- ESP32: 3.3 V
-- LED rosso: 2.0 V
-- Corrente: 10 mA
-
-R = (3.3 − 2.0) / 0.01 = 130 Ω
-
-
-Valori commerciali consigliati:
-- 150 Ω
-- 220 Ω
-
-
-## 2. Parte pratica – LED con ESP32 e MicroPython
-
-### 2.1 Obiettivi della parte pratica
-- Collegare correttamente un LED a un ESP32
-- Usare un GPIO come uscita digitale
-- Controllare il LED tramite software
-- Comprendere il legame tra codice e hardware
-
----
-
-### 2.2 Materiale necessario
+### 2.2 Materiale necessario  
 - ESP32
 - LED
 - Resistenza da 220 Ω
@@ -261,16 +243,15 @@ Valori commerciali consigliati:
 
 ---
 
-### 2.3 Collegamento hardware
-Schema logico di collegamento:
+### 2.3 Collegamento hardware  
+Schema logico di collegamento:  
 ![circuito led 1](images/circuitoLED1.jpg)  
 
-Esempio pratico:
-- GPIO utilizzato: GPIO 2
-- Collegamento a GND per il catodo
+Esempio pratico:  
+- GPIO utilizzato: GPIO 2  
+- Collegamento a GND per il catodo  
 
-
-### 2.4 Primo programma: LED lampeggiante
+### 2.4 Primo programma: LED lampeggiante  
 
 ```python
 from machine import Pin
@@ -287,16 +268,16 @@ while True:
 ### 2.5 Altre esercitazioni  
 
 Creare un circuito con 3 led (di colore Rosso, Gialla e Verde).  
-I led devono essere comandati dal vostro programma in modo indipendente, quindi dovrete collegare ogni circuito del led con 3 diversi GPIO.
+I led devono essere comandati dal vostro programma in modo indipendente, quindi dovrete collegare ogni circuito del led con 3 diversi GPIO.  
 
 Quindi realizzate 3 programmi diversi in cui:  
 - si accende e spegne tutti i led in contemporanea;  
 - si accende un led alla volta in progressione (1 acceso e gli altri spenti) 
 - si simulare il comportamento di un semaforo stradale.  
   
-### 2.6 Codice MORSE    
+### 2.6 Codice MORSE  
 
-Realizzare un programma in micropython e ESP32 per **trasmettere un messaggio in codice Morse**.
+Realizzare un programma in micropython e ESP32 per **trasmettere un messaggio in codice Morse**.  
 
 Materiale:  
 - ESP32  
@@ -304,7 +285,7 @@ Materiale:
 - 1 resistenza (220 ohm)  
 - breadboard e cavetti  
 
-Il programma deve:
+Il programma deve:  
 
 - Definire una stringa di testo (solo lettere e spazi, es. "SOS AIUTO"). La strnga deve essere chiesta in input.  
 - Convertire ogni lettera nel codice Morse corrispondente.
