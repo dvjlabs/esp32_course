@@ -197,18 +197,15 @@ Per funzionare correttamente:
 Se collegato al contrario:  
 - il LED non conduce  
 - il LED non si accende  
-  
-### Tensione diretta e corrente
-Il LED **non deve essere collegato direttamente a una sorgente di tensione**.
-
-Valori tipici della tensione e corrente da fornire ai capi di un LED:
+### Tensione diretta e corrente  
+Il LED **non deve essere collegato direttamente a una sorgente di tensione**.  
+Valori tipici della tensione e corrente da fornire ai capi di un LED:  
 - **Tensione diretta (Vf)**:
   - Rosso: ~1.8–2.0 V
   - Verde: ~2.0–2.2 V
   - Blu / Bianco: ~3.0–3.3 V
 - **Corrente nominale**:
-  - 5–20 mA
-
+  - 5–20 mA  
 Il LED non è una resistenza per cui se viene collegato direttamente a una tensione esterna, il valore di corrente che vi passerebbe è sicuramente molto maggiore di quella propria di funzionamento e si danneggerebbe. (in base alle legge di ohm V=R*I).  
 
 ### Resistenza di limitazione
