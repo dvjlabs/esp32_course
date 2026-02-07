@@ -183,13 +183,12 @@ Durante la ricombinazione l’elettrone passa da un livello energetico più alto
 La differenza di energia non viene dissipata come calore ma viene emessa sotto forma di fotone (luce).  
 
 **Questa emissione si chiama elettroluminescenza.**  
-Il **colore della luce** emessa dipende dal materiale semiconduttore e dal suo **gap energetico**.
-
+Il **colore della luce** emessa dipende dal materiale semiconduttore e dal suo **gap energetico**.  
 ### Polarizzazione del LED  
 Il LED ha due terminali:  
 - **Anodo (+)** → gamba più lunga  
 - **Catodo (−)** → gamba più corta  
-
+![led](images/LED.png)  
 Per funzionare correttamente:  
 - l’anodo deve essere collegato al positivo  
 - il catodo al negativo (GND)  
