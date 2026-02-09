@@ -92,6 +92,8 @@ nav:
       - Distance: corso/43_distance.md
       - DHT22: corso/44_DHT22.md
       - Motion: corso/45_motion.md
+      - Umidità del terreno: corso/50_forchetta.md
+      - Particolato: corso/51_PM.md
       - Networking: corso/99_network.md
   # --------------------------------------------------------
   - Tutorials:
@@ -100,3 +102,4 @@ nav:
       - Socket Programming: tutorials/10_socket.md
       - Tello SDK: tutorials/20_tello.md
       - PySerial: tutorials/30_pyserial.md
+    
