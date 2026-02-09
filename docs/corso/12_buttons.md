@@ -7,9 +7,9 @@ controllati tramite codice MicroPython.
 
 I pulsanti hardware hanno due caratteristiche fisiche che vanno sempre considerate quando se ne inserisce uno in un circuito:
 
-- **floating inputs**: all'inizio l'ESP32 è confuso perché non sa se lo stato iniziale del pulsante è cliccato oppure no. Questo problema si può risolvere con una resistenza di `pull-up` o di `pull-down`.
+- **floating inputs**: significa che quei segnali non hanno un valore ben definito (0 o 1) ma sono variabili (floating). In questo modo l'ESP32 non sa se il valore di tensione che legge sui suoi pin sia 1 (3.3V) oppure 0 (0V). Questo problema si può risolvere con una resistenza di `pull-up` o di `pull-down`. Vedremo meglio con il circuito elettrico.
 
-- **chattering**: se si clicca il pulsante molto rapidamente (ad esempio *sparando* in un gioco), l'ESP32 potrebbe pensare ad un'unica pressione prolungata. Questo problema si può risolvere con tecniche di `debouncing`.
+- **Dobouncing**: quando si preme il pulsante, l'interruttore interno rimbalza più volte prima di assestarsi. Di conseguenza l'ESP32 legge valori 0 e 1 che cambiano continuamente e il programma che esegue istruzioni in base agli input potrebbe funzionare male. Questo problema si può risolvere con tecniche di `debouncing`. ( in seguito viene mostrata l'implementazione SW del debouncing)
 
 Vediamo come è fatto internamente un pulsante:
 
@@ -35,7 +35,7 @@ Ciò accade a causa della natura meccanica dei pulsanti: quando i contatti metal
 il che causa una serie di rapide transizioni di apertura/chiusura.
 
 
-!!! note "Il pulsante del simulatore"
+
 
     Ovviamente, il pulsante del simulatore non ha problemi di contatti *fisici*, ma è in grado di *simularli* impostando la variabile `Bounce` del pulsante:
 
