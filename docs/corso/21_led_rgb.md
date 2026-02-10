@@ -12,12 +12,11 @@ Come si evince dalla figura, il LED RGB presenta un pin per ogni colore fondamen
 
 Il `common pin` può essere:
 
-- un `anodo` (negativo). In questo caso va collegato alla tensione 3.3V. La sintesi dei colori è **negativa** (ZERO è spento, UNO è nero, i colori sono *rovesciati*)
+- un `anodo` (positivo). In questo caso va collegato alla tensione 3.3V. Quando andremo a mettere a 0 il valore sul GPIO, il LED relativo si accende. Se scriviamo 1 il LED si spegne.
 
-- un `catodo` (positivo). In questo caso va collegato al GND. La sintesi dei colori è **positiva** (ZERO è spento, UNO è bianco)
+- un `catodo` (negativo). In questo caso va collegato al GND. La sintesi dei colori è **positiva** (ZERO è spento, UNO è bianco). Quando andremo a mettere a 0 il valore sul GPIO, il LED relativo si spegne. Se scriviamo 1 il LED si accende.
 
-
-Forse conviene leggersi la nota sulla sintesi dei colori...
+Se accendiamo più LED in contemporanea, avremo un colore risultante dato della combinazione dei colori R G B accesi in quel momento.  
 
 
 !!! note "SINTESI ADDITIVA (RGB)"
