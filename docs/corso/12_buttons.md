@@ -84,7 +84,7 @@ Per ottenere questo effetto vogliamo collegare il pulsante in modalità PULL_DOW
 Vediamo lo schema elettrico del progetto (ricordate che nel simulatore si può evitare di mettere il pullup):
 
 
-![Schema LED Button](images/esp32-button-led-wiring-diagram.webp)
+![Schema LED Button](images/pulsante_led.jpg)
 
 
 Quello che manca è il codice di funzionamento. Eccolo:
