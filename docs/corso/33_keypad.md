@@ -15,7 +15,7 @@ pin di collegamento della stessa.
 ![Keypad](images/keypad.png)
 
 
-``` py="class Keypad"
+``` python title="class Keypad"
 from machine import Pin
 import time
 
@@ -137,7 +137,7 @@ class KeyPad(object):
             self._row4.on()
 ```
 
-``` py title="keypad reader"
+``` python title="keypad reader"
 from keypad import KeyPad
 import time
 
