@@ -8,23 +8,23 @@ Funziona inserendo le due sonde metalliche nella terra: passa una piccola corren
 Puoi collegare il Grove-Moisture Sensor direttamente a una scheda con ESP32. Può essere collegato a un pin analogico dell'ESP32 per leggere i valori.  
 
 ## Conversione Analogico-Digitale (AD Converter - ADC)  
-Un segnale analogico è un segnale **continuo**, cioè può assumere qualsiasi valore di tensione in un certo range (nel nostro caso 0–3.3V). Il problema è che un microcontrollore lavora in digitale, quindi capisce solo numeri interi.
+Un segnale analogico è un segnale **continuo**, cioè può assumere qualsiasi valore di tensione in un certo range (nel nostro caso 0–3.3V). Il problema è che un microcontrollore lavora in digitale, quindi capisce solo numeri interi.  
 
 L'**ADC (Analog-to-Digital Converter)** fa proprio questa conversione: "campiona" la tensione in ingresso e la trasforma in un numero intero. Con una risoluzione a **12 bit** hai a disposizione 2¹² = **4096 valori possibili** (da 0 a 4095), quindi la conversione funziona così:
 
 > **valore = (tensione_letta / tensione_massima) × 4095**
 
 Per esempio:
-- 0V → 0
-- 1.65V (metà) → ~2047
-- 3.3V → 4095
+- 0V → 0  
+- 1.65V (metà) → ~2047  
+- 3.3V → 4095  
 
 Più bit hai, più il valore digitale è preciso e "vicino" al segnale analogico reale. Con 12 bit la risoluzione minima è circa **3.3V / 4095 ≈ 0.8 mV**, cioè riesci a distinguere variazioni di tensione di meno di 1 millivolt.
 
 ## Schema di collegamento
-Il Grove-Moisture Sensor ha tre pin:
-1. VCC (alimentazione)
-2. GND (massa)
+Il Grove-Moisture Sensor ha tre pin:  
+1. VCC (alimentazione)  
+2. GND (massa)  
 3. SIG (segnale)  
    
 ## Collegamento:  
