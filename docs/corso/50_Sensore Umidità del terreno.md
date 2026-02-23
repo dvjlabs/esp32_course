@@ -23,7 +23,8 @@ Per esempio:
 
 Più bit hai, più il valore digitale è preciso e "vicino" al segnale analogico reale. Con 12 bit la risoluzione minima è circa **3.3V / 4095 ≈ 0.8 mV**, cioè riesci a distinguere variazioni di tensione di meno di 1 millivolt.
 
-## Schema di collegamento
+## Schema di collegamento  
+
 Il Grove-Moisture Sensor ha tre pin:  
 1. VCC (alimentazione)  
 2. GND (massa)  
