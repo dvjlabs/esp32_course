@@ -84,7 +84,7 @@ Per ottenere questo effetto vogliamo collegare il pulsante in modalità PULL_DOW
 Vediamo lo schema elettrico del progetto (ricordate che nel simulatore si può evitare di mettere il pullup):
 
 
-![Schema LED Button](images/pulsante_led.jpg)
+![Schema LED Button](images/button_led.png)
 
 
 Quello che manca è il codice di funzionamento. Eccolo:
@@ -94,7 +94,7 @@ from machine import Pin
 
 
 led = Pin(16, Pin.OUT)
-button = Pin(25, Pin.IN,Pin.PULL_UP)
+button = Pin(25, Pin.IN,Pin.PULL_DOWN)
 
 while True:
     if button.value():
