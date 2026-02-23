@@ -120,4 +120,4 @@ Imposta la risoluzione a 12 bit, quindi il valore letto sarà un numero intero t
 - 0 = tensione 0V → suolo secco (alta resistenza, poca corrente)  
 - 4095 = tensione 3.3V → suolo bagnato (bassa resistenza, molta corrente)  
 
-In pratica, quando leggi il valore con adc.read(), ottieni un numero in questo range che rappresenta quanto è umido il terreno. Poi puoi mapparlo in una percentuale o confrontarlo con soglie per decidere, ad esempio, quando attivare un'irrigazione.
+In pratica, quando leggi il valore con adc.read(), ottieni un numero in questo range che rappresenta quanto è umido il terreno. Poi puoi mapparlo in una percentuale o confrontarlo con soglie per decidere, ad esempio, quando attivare un'irrigazione. 
