@@ -1,7 +1,7 @@
 # Umidità del terreno - Moisture Sensor 
 
 Il Grove Moisture Sensor è un sensore che misura l'umidità del suolo.  
-![moisture sensor](images/moisture%20sensor.jpg)
+![moisture sensor](images/moisture%20sensor.jpg)  
 Funziona inserendo le due sonde metalliche nella terra: passa una piccola corrente tra di esse e, in base alla resistenza del suolo (che varia con la quantità d'acqua presente), restituisce un valore analogico — più il suolo è bagnato, più alta è la lettura.
 È compatibile con Arduino, Raspberry Pi e altre schede tramite il sistema Grove (connettore a 4 pin), quindi è semplice da collegare senza saldature. Viene usato spesso in progetti di irrigazione automatica o monitoraggio di piante. 
 
