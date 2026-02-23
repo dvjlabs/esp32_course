@@ -1,9 +1,6 @@
-# Led(s)
+# Sensore di umidità del terreno  
 
-
-Un LED è un componente elettronico che funziona solo quando la corrente scorre nel verso giusto.
-Tipicamente ha due poli: **il polo positivo nel pin più lungo** (catodo) e **il polo negativo nel pin più corto** (anodo).
-
+Il sensore che andremo a utilizzare va infilato nel terreno. In base 
 ![LED](images/LED.png)
 
 I led lavorano ad una corrente di attraversamento compresa fra 1.9V e 3.3V. Se la corrente supera questo voltaggio, il LED si danneggerà e magari...
