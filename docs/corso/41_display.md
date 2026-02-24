@@ -1,10 +1,15 @@
 # LCD Display(s)  
 
-##  librerie da importare  (I2C_LCD.py e LCD_API.py)
+Il display LCD (tecnicamente, `LCD1602`) è un dispositivo di output che consente di visualizzare testo e immagini su una matrice di led o di segmenti. 
+Esso è comunemente utilizzato nelle applicazioni embedded per mostrare informazioni utili all'utente.
 
-### I2C_LCD.py
+Il display LCD può visualizzare 2 linee di 16 caratteri ASCII ognuna. Utilizza il sistema I2C per comunicare con il microcontrollore. I2C è un protocollo di comunicazione digitale che consente di collegare dispositivi in una rete di comunicazione. Le periferiche che usano I2C devono essere connesse ad una linea
+seriale dedicata ai dati (`SDA`, serial data) e ad una linea seriale dedicata alla sincronizzazione (`SCL`, serial clock): questa coppia viene definita `bus I2C`.
 
-```python  
+Mentre il collegamento fisico con I2C risulta abbastanza semplice, il codice per la gestione dei dati si complica un pochino: meglio allora importare dei
+file che semplificano la difficoltà implementativa e rendono il display semplice da utilizzare come nell'esempio in fondo.
+
+```python title="I2C_LCD.py"
 from LCD_API import LcdApi
 from machine import I2C
 from time import sleep_ms
@@ -13,13 +18,11 @@ from time import sleep_ms
 DEFAULT_I2C_ADDR = 0x27
 
 # Defines shifts or masks for the various LCD line attached to the PCF8574
-
 MASK_RS = 0x01
 MASK_RW = 0x02
 MASK_E = 0x04
 SHIFT_BACKLIGHT = 3
 SHIFT_DATA = 4
-
 
 class I2cLcd(LcdApi):
     def __init__(self, i2c, i2c_addr, num_lines, num_columns):
@@ -85,9 +88,8 @@ class I2cLcd(LcdApi):
         self.i2c.writeto(self.i2c_addr, bytearray([byte]))
 
 ```
-### LCD_API.py  
 
-```python  
+```python title="LCD_API.py"
 import time
 
 class LcdApi:
@@ -278,13 +280,12 @@ class LcdApi:
     def hal_sleep_us(self, usecs):
         """Sleep for some time (given in microseconds)."""
         time.sleep_us(usecs)
-
-
+    
 ```
-##  Codice  (IIC_LCD1602.py)
 
-### IIC_LCD1602.py
-```python  
+Dopo aver copiato e incollato i file sopra con lo stesso nome indicato nel titolo, prova un semplice codice per scrivere qualcosa sul display LCD.
+
+```python title="Esempio di utilizzo del Display LCD"
 import time
 from machine import I2C, Pin
 from I2C_LCD import I2cLcd
@@ -317,4 +318,3 @@ except:
 <br>
 <br>
 <br>
-
