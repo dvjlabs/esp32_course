@@ -1,13 +1,11 @@
 # Umidità del terreno - Moisture Sensor 
-
-Il Grove Moisture Sensor è un sensore che misura l'umidità del suolo.  
+Il sensore che vedete in figura permette di stimare l'umidità del terreno.  
 
 ![moisture sensor](images/moisture_sensor.jpg)  
 
-Funziona inserendo le due sonde metalliche nella terra: passa una piccola corrente tra di esse e, in base alla resistenza del suolo (che varia con la quantità d'acqua presente), restituisce un valore analogico — più il suolo è bagnato, più alta è la lettura.
-È compatibile con Arduino, Raspberry Pi e altre schede tramite il sistema Grove (connettore a 4 pin), quindi è semplice da collegare senza saldature. Viene usato spesso in progetti di irrigazione automatica o monitoraggio di piante. 
-
-Puoi collegare il Grove-Moisture Sensor direttamente a una scheda con ESP32. Può essere collegato a un pin analogico dell'ESP32 per leggere i valori.  
+Inserendo le due sonde metalliche nella terra, una piccola corrente passa tra di esse. La corrente che circola è proporzionale alla resistenza del suolo la quale è proporzionale alla quantità di acqua presente nel terreno.  
+Un segnale elettrico analogico viene portato a un pin dell'ESP32 che esegue una conversione Analogica --> Digitale del segnale elettrico.  
+Viene usato spesso in progetti di irrigazione automatica o monitoraggio di piante.  
 
 ## Conversione Analogico-Digitale (AD Converter - ADC)  
 Un segnale analogico è un segnale **continuo**, cioè può assumere qualsiasi valore di tensione in un certo range (nel nostro caso 0–3.3V). Il problema è che un microcontrollore lavora in digitale, quindi capisce solo numeri interi.  
