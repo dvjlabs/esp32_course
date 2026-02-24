@@ -10,7 +10,7 @@ Viene usato spesso in progetti di irrigazione automatica o monitoraggio di piant
 ## Conversione Analogico-Digitale (AD Converter - ADC)  
 Un segnale analogico è un segnale **continuo**, cioè può assumere qualsiasi valore di tensione in un certo range (nel nostro caso 0–3.3V). Il problema è che un microcontrollore lavora in digitale, quindi capisce solo numeri interi.  
 
-L'**ADC (Analog-to-Digital Converter)** fa proprio questa conversione: "campiona" la tensione in ingresso e la trasforma in un numero intero. Con una risoluzione a **12 bit** hai a disposizione 2¹² = **4096 valori possibili** (da 0 a 4095), quindi la conversione funziona così:
+L'**ADC (Analog-to-Digital Converter)** fa proprio questa conversione: "campiona" la tensione in ingresso e la trasforma in un numero intero. Con una risoluzione a **12 bit** hai a disposizione 2^12 = **4096 valori possibili** (da 0 a 4095), quindi la conversione funziona così:
 
 > **valore = (tensione_letta / tensione_massima) × 4095**
 
