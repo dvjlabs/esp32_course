@@ -94,6 +94,7 @@ nav:
       - Motion: corso/45_motion.md
       - Umidità del terreno: corso/50_Sensore_Umidità_del_terreno.md
       - Particolato PM10 e PM2.5: corso/51_PM.md
+      - DS18B20 Sensore di Temperatura: corso/52_DS18B20 Sensore di temperatura.md
       - Networking: corso/99_network.md
   # --------------------------------------------------------
   - Tutorials:
