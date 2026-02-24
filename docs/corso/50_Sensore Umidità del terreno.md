@@ -3,7 +3,7 @@ Il sensore che vedete in figura permette di stimare l'umidità del terreno.
 
 ![moisture sensor](images/moisture_sensor.jpg)  
 
-Inserendo le due sonde metalliche nella terra, una piccola corrente passa tra di esse. La corrente che circola è proporzionale alla resistenza del suolo la quale è proporzionale alla quantità di acqua presente nel terreno.  
+Inserendo le due sonde metalliche nella terra, una piccola corrente passa tra di esse. La corrente che circola e' proporzionale alla resistenza del suolo la quale é proporzionale alla quantità di acqua presente nel terreno.  
 Un segnale elettrico analogico viene portato a un pin dell'ESP32 che esegue una conversione Analogica --> Digitale del segnale elettrico.  
 Viene usato spesso in progetti di irrigazione automatica o monitoraggio di piante.  
 
