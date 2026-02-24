@@ -23,7 +23,7 @@ I collegamenti sui pin dell'ESP32 in figura sono indicativi. Non corrispondono n
 
 
 ## Il codice  
-Il seguente codice esegue le seguenti funzioni:  
+Il codice riportato sotto esegue le seguenti funzioni:  
 
 - import delle librerie  
 - configurazione dei pin (ds_pin = machine.Pin(4))  
