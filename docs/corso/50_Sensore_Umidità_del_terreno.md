@@ -29,7 +29,9 @@ Il Grove-Moisture Sensor ha tre pin:
 1. VCC (alimentazione)  
 2. GND (massa)  
 3. SIG (segnale)  
-   
+
+![pin_umidita](images/pin_umidita.jpg)   
+
 ## Collegamento:  
 - VCC del sensore → 3.3V della ESP32
 - GND del sensore → GND della ESP32
