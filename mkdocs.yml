@@ -92,7 +92,7 @@ nav:
       - Distance: corso/43_distance.md
       - DHT22: corso/44_DHT22.md
       - Motion: corso/45_motion.md
-      - Umidità del terreno: corso/50_forchetta.md
+      - Umidità del terreno: corso/50_Sensore umidità del terreno.md
       - Particolato PM10 e PM2.5: corso/51_PM.md
       - Networking: corso/99_network.md
   # --------------------------------------------------------
