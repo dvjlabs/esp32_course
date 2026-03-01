@@ -15,7 +15,7 @@ pin di collegamento della stessa.
 ![Keypad](images/keypad.png)
 
 
-``` python title="class Keypad"
+``` python title="class Keypad, da salvare nel file keypad.py"
 from machine import Pin
 import time
 
