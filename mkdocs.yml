@@ -103,3 +103,4 @@ nav:
       - Socket Programming: tutorials/10_socket.md
       - Tello SDK: tutorials/20_tello.md
       - PySerial: tutorials/30_pyserial.md
+      - "Data is in the air": tutorials/40_data_air.md
