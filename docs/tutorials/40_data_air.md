@@ -142,14 +142,16 @@ def gestisci_dati():
         payload = request.get_json()
     else:
         payload = request.form
-    id = payload["id_sensor"]
+    ids = payload["id_sensor"]
     temp = payload["temperature"]
-    return render_template("data.html",id_sensor = id, temperature = temp)
+    return render_template("data.html",id_sensor = ids, temperature = temp)
 ```
 
 ## ESP32 urequests
 
-Quello che vogliamo fare adesso è 
+Quello che vogliamo fare adesso è inviare richieste GET e POST non tramite una pagina web, ma tramite una piccola applicazione (Micro)Python
+in esecuzione sull'ESP32.
+
 La libreria `urequests` è la libreria MicroPython standard per l'invio dati tramite HTTP. Vediamo due esempi banali di richiesta GET e POST.
 Tutto il contorno dovrete inserirlo voi...
 
@@ -182,10 +184,15 @@ except Exception as e:
 
 ## SQLite
 
-Non è ancora pronto... ho cercato un pò su Internet e il tutorial migliore mi sembra questo: 
+Non è ancora pronto... ho cercato un pò su Internet e il tutorial migliore mi è sembrato questo: 
 [https://www.sqlitetutorial.net/sqlite-python/](https://www.sqlitetutorial.net/sqlite-python/)
 
 Semplice e completo di tutti gli argomenti che volevo affrontare!!!
+
+* inizializzazione del database (CREATE)
+  - creazione tabelle
+* inserimento dati (INSERT)
+* lettura dati (SELECT)
 
 
 
