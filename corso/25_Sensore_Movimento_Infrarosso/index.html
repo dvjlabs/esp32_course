@@ -1,0 +1,1663 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="dvjlabs team">
+      
+      
+      
+        <link rel="prev" href="../22_buzzer/">
+      
+      
+        <link rel="next" href="../30_ADC/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Movimento - MicroPython e ESP32</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sensore-di-movimento-a-infrarossi" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="MicroPython e ESP32" class="md-header__button md-logo" aria-label="MicroPython e ESP32" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MicroPython e ESP32
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Movimento
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_intro/" class="md-tabs__link">
+          
+  
+  Corso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorials/00_intro/" class="md-tabs__link">
+          
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MicroPython e ESP32" class="md-nav__button md-logo" aria-label="MicroPython e ESP32" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MicroPython e ESP32
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Corso
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Corso
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduzione
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_prime_operazioni/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prime Operazioni
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_micropython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroPython
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_GPIO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_il_multimetro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Il multimetro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_sensori/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elementi di Circuiti
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_corrente_tensione_circuito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Corrente e Tensione in un Circuito Elettrico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_led_ledbar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Led e ledbar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_1_Il%20LED%20teoria%20e%20applicazioni/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Led teoria e esercizi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_buttons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_analog_pwm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog & PWM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21_led_rgb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RGB Led
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22_buzzer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Buzzer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Movimento
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Movimento
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#progetto-rilevatore-di-movimento-a-infrarossi-con-led-di-segnalazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progetto – Rilevatore di movimento a infrarossi con LED di segnalazione
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progetto – Rilevatore di movimento a infrarossi con LED di segnalazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elenco-dei-componenti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elenco dei componenti
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conoscenze-sul-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conoscenze sul componente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuito
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Codice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrared-motion-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrared Motion Detector
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendice-a-regolazione-dei-potenziometri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendice A: regolazione dei potenziometri
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendice A: regolazione dei potenziometri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#r1-il-tempo-di-ritardo" class="md-nav__link">
+    <span class="md-ellipsis">
+      R1: il tempo di ritardo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2-la-distanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      R2: la distanza
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-ponticello-lh-che-lavora-insieme-a-r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Il ponticello L/H, che lavora insieme a R1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consigli-pratici-per-la-prova-in-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consigli pratici per la prova in classe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attenzione-al-proprio-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attenzione al proprio modulo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30_ADC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31_potentiometer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Potenziometro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32_joystick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Joystick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33_keypad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Keypad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34_photoresistor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FotoResistore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41_display/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Display
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42_IR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrarossi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43_distance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distanza
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44_DHT22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHT11 e DHT22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45_motion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../50_moisture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Umidità del terreno
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../51_PM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particolato: PM10 e PM2.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../52_DS18B20_temperatura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Temperatura: DS18B20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/00_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduzione
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/04_simulator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Esp32 simulator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/10_socket/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Socket Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/20_tello/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tello SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/30_pyserial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PySerial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/40_data_air/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data is in the air
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="sensore-di-movimento-a-infrarossi">Sensore di movimento a infrarossi</h1>
+<p>In questo capitolo impareremo a usare un sensore molto diffuso: il <strong>sensore di movimento a infrarossi</strong> (sensore PIR).</p>
+<h2 id="progetto-rilevatore-di-movimento-a-infrarossi-con-led-di-segnalazione">Progetto – Rilevatore di movimento a infrarossi con LED di segnalazione</h2>
+<p>In questo progetto realizzeremo un rilevatore di movimento usando un sensore piroelettrico a infrarossi per il corpo umano.
+Quando qualcuno si trova nelle vicinanze del rilevatore, il LED si accende automaticamente; quando non c'è nessuno nei paraggi, il LED si spegne.</p>
+<p>Questo sensore di movimento a infrarossi rileva lo spettro infrarosso (cioè le tracce di calore) emesso da esseri umani e animali.</p>
+<h3 id="elenco-dei-componenti">Elenco dei componenti</h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th style="text-align: center;">Quantità</th>
+<th style="text-align: center;">Immagine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESP32-WROVER</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/01_esp32_wrover.png" height="150" alt="ESP32-WROVER"></td>
+</tr>
+<tr>
+<td>Scheda di estensione GPIO (GPIO Extension Board)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/02_scheda_estensione_gpio.png" height="150" alt="Scheda di estensione GPIO"></td>
+</tr>
+<tr>
+<td>Breadboard</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/03_breadboard.png" width="380" alt="Breadboard"></td>
+</tr>
+<tr>
+<td>Sensore di movimento HC-SR501</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/04_hc_sr501.png" height="110" alt="HC-SR501"></td>
+</tr>
+<tr>
+<td>LED</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/05_led.png" height="110" alt="LED"></td>
+</tr>
+<tr>
+<td>Resistenza da 220 Ω</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><img src="img_capitolo_25/06_resistenza_220.png" height="110" alt="Resistenza 220 Ω"></td>
+</tr>
+<tr>
+<td>Cavetti jumper F/M (femmina-maschio)<br>Cavetti jumper M/M (maschio-maschio)</td>
+<td style="text-align: center;">3<br>2</td>
+<td style="text-align: center;"><img src="img_capitolo_25/07_cavetti_jumper.png" width="240" alt="Cavetti jumper"><br><em>in alto F/M, in basso M/M</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="conoscenze-sul-componente">Conoscenze sul componente</h3>
+<p>Ecco come è fatto il sensore di movimento a infrarossi (HC-SR501):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Vista dall'alto</th>
+<th style="text-align: center;">Vista dal basso</th>
+<th style="text-align: center;">Simbolo schematico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="img_capitolo_25/08_hc_sr501_sopra.png" height="130" alt="HC-SR501 vista dall'alto"></td>
+<td style="text-align: center;"><img src="img_capitolo_25/09_hc_sr501_sotto.png" height="130" alt="HC-SR501 vista dal basso"></td>
+<td style="text-align: center;"><img src="img_capitolo_25/10_hc_sr501_schema.png" height="110" alt="Simbolo schematico HC-SR501"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descrizione:</strong></p>
+<p><strong>Tensione di funzionamento:</strong> 5 V – 20 V (DC). <strong>Corrente a riposo:</strong> 65 µA.</p>
+<p><strong>Attivazione automatica.</strong> Quando un corpo vivente entra nell'area di rilevamento del sensore, il modulo porta l'uscita a <strong>livello alto (3,3 V)</strong>. Quando il corpo esce dall'area di rilevamento, l'uscita resta alta ancora per un tempo T, poi passa a <strong>livello basso (0 V)</strong>. Il tempo di ritardo T si regola con il potenziometro <strong>R1</strong>.</p>
+<p>A seconda della posizione del ponticello (jumper) si può scegliere tra la modalità di attivazione <strong>non ripetibile</strong> e quella <strong>ripetibile</strong>.</p>
+<p><strong>L: modalità di attivazione non ripetibile.</strong> Dopo aver rilevato un corpo, il modulo porta l'uscita a livello alto; finito il tempo di ritardo, la riporta a livello basso. Mentre l'uscita è alta, il sensore non rileva più altri corpi.</p>
+<p><strong>H: modalità di attivazione ripetibile.</strong> A differenza della modalità L, mentre l'uscita è alta il sensore continua a rilevare il corpo finché questo non si allontana. Solo allora inizia a contare il tempo e, trascorso il ritardo T, porta l'uscita a livello basso.</p>
+<p><strong>Tempo di blocco del rilevamento:</strong> dopo aver portato l'uscita a livello alto o basso, il sensore resta bloccato e ignora i segnali esterni per brevi intervalli di tempo (inferiori al tempo di ritardo).</p>
+<p><strong>Tempo di inizializzazione:</strong> dopo l'accensione il modulo ha bisogno di circa <strong>1 minuto</strong> per inizializzarsi. In questo periodo l'uscita passa alternativamente dal livello alto a quello basso.</p>
+<p>Una caratteristica di questo sensore è che la sensibilità è massima quando un corpo si avvicina o si allontana passando lungo il bordo della cupola del sensore. Se invece un corpo si avvicina o si allontana dalla cupola in direzione verticale, il sensore non lo rileva bene (attenzione a questo limite). Nota: il raggio di rilevamento (la distanza entro cui un corpo viene rilevato) si regola con il potenziometro.</p>
+<p>In pratica possiamo considerare questo sensore come un semplice interruttore a induzione, cioè un interruttore che scatta quando rileva una presenza.</p>
+<h3 id="circuito">Circuito</h3>
+<p><strong>Schema elettrico</strong></p>
+<p><img alt="Schema elettrico: HC-SR501 e LED collegati all'ESP32-WROVER tramite la scheda di estensione GPIO" src="../img_capitolo_25/11_schema_elettrico.png" /></p>
+<p>Riepilogo dei collegamenti (ricavato dallo schema):</p>
+<table>
+<thead>
+<tr>
+<th>Da</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HC-SR501 – VCC (pin 3, <strong>+</strong>)</td>
+<td>5V</td>
+</tr>
+<tr>
+<td>HC-SR501 – OUT (pin 2, <strong>S</strong>)</td>
+<td>GPIO 14</td>
+</tr>
+<tr>
+<td>HC-SR501 – GND (pin 1, <strong>−</strong>)</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>GPIO 13</td>
+<td>resistenza R1 220 Ω → LED (anodo)</td>
+</tr>
+<tr>
+<td>LED (catodo)</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Collegamento hardware.</strong> Per qualsiasi supporto potete contattare Freenove all'indirizzo: support@freenove.com</p>
+<p><img alt="Collegamento hardware su breadboard" src="../img_capitolo_25/12_collegamento_hardware.png" /></p>
+<h3 id="codice">Codice</h3>
+<p>In questo progetto usiamo il sensore di movimento a infrarossi per comandare un LED: in pratica il sensore funziona come un interruttore azionato dal movimento. Per questo il codice è simile a quello del progetto "Button &amp; Led" (Pulsante e LED). La differenza è che il sensore porta l'uscita a livello alto quando rileva una variazione, e a livello basso quando non rileva nulla. Quando l'uscita del sensore è alta il LED si accende, altrimenti il LED si spegne.</p>
+<p>Prima di iniziare, sposta la cartella dei programmi "<strong>Freenove_Ultimate_Starter_Kit_for_ESP32/Python/Python_Codes</strong>" sul disco D, in modo che il percorso diventi "<strong>D:/Micropython_Codes</strong>".</p>
+<p>Apri "Thonny" e clicca su "This computer" → "D:" → "Micropython_Codes" → "25.1_Infrared_Motion_Detector", poi fai doppio clic su "Infrared_Motion_Detector.py".</p>
+<h4 id="infrared-motion-detector">Infrared Motion Detector</h4>
+<p><img alt="Il programma Infrared_Motion_Detector.py aperto in Thonny" src="../img_capitolo_25/13_codice_thonny.png" /></p>
+<p>Codice del file <code>Infrared_Motion_Detector.py</code> (commenti tradotti):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">sensorPin</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">ledPin</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">sensorPin</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="n">ledPin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Accende il LED</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            <span class="n">ledPin</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Spegne il LED</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="k">pass</span>
+</code></pre></div>
+<p>Clicca su "Run current script" (esegui lo script corrente). Appoggia il sensore su un tavolo, senza muoverlo, e aspetta circa un minuto. Poi prova ad allontanarti o ad avvicinarti al sensore e osserva se il LED si accende o si spegne automaticamente.</p>
+<p>Puoi ruotare i potenziometri del sensore per regolare il rilevamento, oppure cambiare modalità spostando il ponticello (jumper). <em>(Approfondimento: vedi <a href="#appendice-a-regolazione-dei-potenziometri">Appendice A</a>.)</em></p>
+<p align="center"><img src="img_capitolo_25/14_potenziometri_jumper.png" height="150" alt="Potenziometri R1 e R2 e ponticello L/H"></p>
+
+<p>Inoltre, modificando il codice, puoi usare questo sensore per comandare altri moduli e realizzare funzioni diverse, come una lampada o una porta che si attivano al passaggio di una persona.</p>
+<p><strong>Avvicinati al sensore di movimento a infrarossi</strong> (il LED si accende)</p>
+<p><img alt="Avvicinandosi al sensore il LED si accende" src="../img_capitolo_25/15_avvicinamento.png" /></p>
+<p><strong>Allontanati dal sensore di movimento a infrarossi</strong> (il LED si spegne)</p>
+<p><img alt="Allontanandosi dal sensore il LED si spegne" src="../img_capitolo_25/16_allontanamento.png" /></p>
+<hr />
+<blockquote>
+<p><strong>Nota del traduttore (non presente nell'originale).</strong> Il testo dice che il LED si accende quando l'uscita del sensore è alta, ma nel codice la condizione è <code>if not sensorPin.value():</code>. Così com'è, quindi, il programma accende il LED (<code>ledPin.value(1)</code>) quando l'uscita del sensore è <strong>bassa</strong>, cioè quando <em>non</em> c'è movimento: il contrario di quanto descritto. Se durante la prova il LED si comporta al contrario, cambia la riga 9 in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        <span class="k">if</span> <span class="n">sensorPin</span><span class="o">.</span><span class="n">value</span><span class="p">():</span>
+</code></pre></div>
+</blockquote>
+<hr />
+<h2 id="appendice-a-regolazione-dei-potenziometri">Appendice A: regolazione dei potenziometri</h2>
+<p><em>Approfondimento aggiunto alla traduzione, non presente nell'originale.</em></p>
+<p>Sul retro del sensore ci sono due potenziometri, <strong>R1</strong> e <strong>R2</strong>, accanto al ponticello <strong>L/H</strong>. Sono piccoli trimmer che si girano con un cacciavite piccolo, e regolano due cose diverse.</p>
+<p align="center"><img src="img_capitolo_25/09_hc_sr501_sotto.png" height="150" alt="Retro dell'HC-SR501 con i potenziometri R1, R2 e il ponticello L/H"></p>
+
+<table>
+<thead>
+<tr>
+<th>Potenziometro</th>
+<th>Cosa regola</th>
+<th>Effetto pratico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td><strong>Tempo di ritardo T</strong></td>
+<td>Per quanto tempo l'uscita resta alta (LED acceso) dopo che il movimento è finito</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td><strong>Distanza (sensibilità)</strong></td>
+<td>Quanto lontano deve essere una persona per essere rilevata</td>
+</tr>
+</tbody>
+</table>
+<p>Il capitolo Freenove nomina esplicitamente solo <strong>R1</strong> per il tempo. Per la distanza dice solo "si regola con il potenziometro": essendo R1 già usato per il tempo, è <strong>R2</strong>.</p>
+<h3 id="r1-il-tempo-di-ritardo">R1: il tempo di ritardo</h3>
+<p>Quando una persona esce dall'area di rilevamento, l'uscita non torna subito a 0 V: resta alta ancora per il tempo <strong>T</strong>, poi si abbassa.</p>
+<ul>
+<li><strong>T corto:</strong> il LED si spegne poco dopo che la persona se n'è andata.</li>
+<li><strong>T lungo:</strong> il LED resta acceso più a lungo, come una luce delle scale.</li>
+</ul>
+<p>Di solito T va da qualche secondo a qualche minuto, a seconda del modello.</p>
+<p>Nel nostro progetto il programma non gestisce nessun tempo: copia soltanto lo stato del sensore sul LED. Quindi <strong>la durata del LED acceso la decide R1, non il codice.</strong></p>
+<h3 id="r2-la-distanza">R2: la distanza</h3>
+<p>Regola fin dove arriva il rilevamento, tipicamente da circa 3 a circa 7 metri.</p>
+<ul>
+<li><strong>Al minimo:</strong> reagisce solo se ci si avvicina molto.</li>
+<li><strong>Al massimo:</strong> reagisce anche a movimenti lontani, ma aumenta il rischio di falsi allarmi.</li>
+</ul>
+<h3 id="il-ponticello-lh-che-lavora-insieme-a-r1">Il ponticello L/H, che lavora insieme a R1</h3>
+<ul>
+<li><strong>L (non ripetibile):</strong> il sensore scatta e resta alto per il tempo T, anche se nel frattempo ci si continua a muovere. Poi si abbassa e solo dopo può scattare di nuovo.</li>
+<li><strong>H (ripetibile):</strong> finché c'è movimento il tempo T riparte da capo, e il LED si spegne solo T secondi dopo l'ultimo movimento. È la modalità adatta a una lampada che deve restare accesa finché c'è qualcuno.</li>
+</ul>
+<h3 id="consigli-pratici-per-la-prova-in-classe">Consigli pratici per la prova in classe</h3>
+<ol>
+<li><strong>R1 al minimo:</strong> così non si devono aspettare minuti per vedere il LED spegnersi.</li>
+<li><strong>R2 a metà:</strong> è un buon punto di partenza.</li>
+<li><strong>Ponticello su H:</strong> il comportamento è più intuitivo.</li>
+<li><strong>Aspettare circa 1 minuto dopo l'accensione:</strong> il sensore si sta inizializzando e il LED può accendersi e spegnersi da solo.</li>
+<li><strong>Blocco dopo lo spegnimento:</strong> per qualche istante il sensore non rileva nulla. È normale, non è un guasto.</li>
+</ol>
+<h3 id="attenzione-al-proprio-modulo">Attenzione al proprio modulo</h3>
+<ul>
+<li><strong>Posizione dei trimmer:</strong> non tutti gli HC-SR501 hanno R1 e R2 nella stessa posizione del disegno Freenove. Alcuni li chiamano "Tx/Sx" o "TIME/SENS", altri non hanno scritte.</li>
+<li><strong>Senso di rotazione:</strong> anche il verso che aumenta il valore può cambiare tra un modulo e l'altro.</li>
+</ul>
+<p>Nel dubbio, si può fare una prova: girare un trimmer e osservare cosa cambia. Se cambia quanto resta acceso il LED, è il <strong>tempo</strong>; se cambia la distanza a cui il sensore rileva, è la <strong>sensibilità</strong>. I trimmer hanno un fine corsa: non vanno forzati oltre.</p>
+<hr />
+<p><em>Traduzione italiana del Capitolo 25 (pp. 276–280) del tutorial Python del "Freenove Ultimate Starter Kit for ESP32", © Freenove, rilasciato con licenza <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 3.0 Unported (CC BY-NC-SA 3.0)</a>. Questa traduzione è distribuita con la stessa licenza. Freenove® è un marchio di Freenove Creative Technology Co., Ltd.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Torna su
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Piede" >
+        
+          
+          <a href="../22_buzzer/" class="md-footer__link md-footer__link--prev" aria-label="Precedente: Buzzer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Precedente
+              </span>
+              <div class="md-ellipsis">
+                Buzzer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../30_ADC/" class="md-footer__link md-footer__link--next" aria-label="Successivo: ADC">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Successivo
+              </span>
+              <div class="md-ellipsis">
+                ADC
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      dvjlabs (c) 2023-inf<br> <a href="#__consent">Change Cookie Settings</a><br> This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+
+  
+
+<h4>Consenso all'utilizzo dei cookies</h4>
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accetta</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Rifiuta</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
