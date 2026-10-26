@@ -105,4 +105,4 @@ nav:
       - Tello SDK: tutorials/20_tello.md
       - PySerial: tutorials/30_pyserial.md
       - "Data is in the air": tutorials/40_data_air.md
-      
+      - "ESP32 <--> Flask": tutorials/50_esp32_flask.md
