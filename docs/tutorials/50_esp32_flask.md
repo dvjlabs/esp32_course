@@ -195,7 +195,16 @@ Il codice non è semplicissimo, ma alcune parti si capiscono bene. Provate e ved
 
 
 ``` python
-# ... prima carichi la connessione di rete... poi cominci con la libreria socket
+# ... prima carichi la connessione di rete... 
+
+# poi configuri il tuo led...
+from machine import Pin
+
+print("setting LED...")
+led = Pin(15, Pin.OUT)
+led.off()
+
+# infine cominci con la libreria socket
 import socket
 
 s = socket.socket()
@@ -203,6 +212,7 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(("0.0.0.0", 80))
 s.listen(1)
 print("In ascolto sulla porta 80")
+stato = "SPENTO"
 
 while True:
     client, indirizzo = s.accept()          # si blocca finche' arriva una richiesta
@@ -218,16 +228,23 @@ while True:
 
     if percorso == "/led/1":
         print("VALUE 1")
+        led.on()
+        stato = "ACCESO"
     elif percorso == "/led/0":
         print("VALUE 0")
-
-    stato = "ACCESO o SPENTO" # metti un if per scrivere ACCESO oppure SPENTO
+        led.off()
+        stato = "SPENTO"
+    
     pagina = (
         "<h1>ESP32</h1>"
         "<p>LED: " + stato + "</p>"
         '<a href="/led/1">ON</a> | <a href="/led/0">OFF</a>'
     )
-
+    
+    # Risposta HTTP: riga di stato, intestazione, riga vuota, corpo
+    risposta = "HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n\r\n" + pagina
+    client.send(risposta.encode())
+    client.close()
 ```
 
 Da qui in poi... puoi mettere insieme i pezzi e far funzionare tutto da solo...
