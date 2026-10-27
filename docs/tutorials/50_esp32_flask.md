@@ -92,7 +92,7 @@ if __name__ == "__main__":
     app.run(host = "0.0.0.0", port = 5000, debug = True, use_reloader = False)
 ```
 
-## Invio dati (solo GET)
+## Invio dati: ESP32 --> Flask
 
 Facciamo un paio di prove, entrambi con GET: uno per inviare dati all'esterno, uno per inviare e ricevere dati sullo stesso
 server.
@@ -186,30 +186,48 @@ print('Response content:', resp.text)
 ```
 
 
-## ESP32 con microdot
+## server ESP32: Flask --> ESP32 
 
-*microdot* sarebbe flask in miniatura, adatto per l'ESP32. Si installa semplicemente scaricando il file *microdot.py* e inserendolo nella 
-nostra ESP32.
+Ho provato ogni microserver disponibile in rete... ma per essere sicuri (abbastanza sicuri...) che funzioni, l'unica è scrivere le cose 
+a manina...
 
-LINK: https://microdot.readthedocs.io/en/latest/intro.html
+Il codice non è semplicissimo, ma alcune parti si capiscono bene. Provate e vedete!
+
 
 ``` python
-from microdot import Microdot
+# ... prima carichi la connessione di rete... poi cominci con la libreria socket
+import socket
 
-app = Microdot()
+s = socket.socket()
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+s.bind(("0.0.0.0", 80))
+s.listen(1)
+print("In ascolto sulla porta 80")
 
-@app.route("/")
-async def index(request):
-    html = """<h1>ESP32 server</h1><p><a href="/led/1">LED ON</a> | <a href="/led/0">LED OFF</a></p>"""
-    return html
+while True:
+    client, indirizzo = s.accept()          # si blocca finche' arriva una richiesta
+    richiesta = client.recv(1024).decode()
+    if not richiesta:
+        client.close()
+        continue
 
-@app.route("/led/<stato>")
-async def comando_led(request, stato):
-    led.value(int(stato))
-    return "LED: " + str(led.value())
+    # La prima riga della richiesta e' tipo:  GET /led/1 HTTP/1.1
+    prima_riga = richiesta.split("\r\n")[0]
+    percorso = prima_riga.split(" ")[1]
+    print(indirizzo[0], "->", percorso)
 
-# avvia il server sulla porta 80
-app.run(port=80)
+    if percorso == "/led/1":
+        print("VALUE 1")
+    elif percorso == "/led/0":
+        print("VALUE 0")
+
+    stato = "ACCESO o SPENTO" # metti un if per scrivere ACCESO oppure SPENTO
+    pagina = (
+        "<h1>ESP32</h1>"
+        "<p>LED: " + stato + "</p>"
+        '<a href="/led/1">ON</a> | <a href="/led/0">OFF</a>'
+    )
+
 ```
 
 Da qui in poi... puoi mettere insieme i pezzi e far funzionare tutto da solo...
